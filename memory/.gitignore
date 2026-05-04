@@ -1,0 +1,12 @@
+# Raw memory sources are private by default.
+chatgpt/*
+codex/*
+
+# Keep folder placeholders tracked.
+!chatgpt/.gitkeep
+!codex/.gitkeep
+
+# Distilled outputs should be explicitly reviewed before commit.
+distilled/*
+!distilled/.gitkeep
+!distilled/README.md

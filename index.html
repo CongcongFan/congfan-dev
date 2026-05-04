@@ -3,21 +3,27 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cong Fan · AI Product Work and Field Notes</title>
-  <meta name="description" content="Personal site of Cong Fan, a Brisbane-based AI product operator writing about agentic coding, practical AI workflows, and shipped product work." />
+  <title>Cong Fan · AI Product Builds, Workflow Automation, and Repo Rescue</title>
+  <meta name="description" content="Brisbane-based AI product operator helping founders and small teams ship AI prototypes, workflow automation, internal tools, and repo rescue work." />
   <meta name="author" content="Cong Fan" />
   <link rel="canonical" href="https://congfan.dev/" />
   <link rel="author" href="https://congfan.dev/" />
   <link rel="alternate" type="text/plain" href="https://congfan.dev/llms.txt" title="LLMs site summary" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#C0512F" />
+  <script src="https://cdn.platform.openai.com/deployments/chatkit/chatkit.js" async></script>
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Cong Fan" />
-  <meta property="og:title" content="Cong Fan · AI Product Work and Field Notes" />
-  <meta property="og:description" content="Personal site of Cong Fan: field notes, selected work, and practical AI product implementation from Brisbane." />
+  <meta property="og:title" content="Cong Fan · AI Product Builds and Workflow Automation" />
+  <meta property="og:description" content="Brisbane-based help for AI product prototypes, workflow automation, internal tools, and repo rescue." />
   <meta property="og:url" content="https://congfan.dev/" />
   <meta property="og:image" content="https://congfan.dev/cong-fan-headshot.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Cong Fan · AI Product Work and Field Notes" />
-  <meta name="twitter:description" content="Field notes, selected work, and practical AI product implementation from Brisbane." />
+  <meta name="twitter:title" content="Cong Fan · AI Product Builds and Workflow Automation" />
+  <meta name="twitter:description" content="AI product prototypes, workflow automation, internal tools, and repo rescue from Brisbane." />
   <meta name="twitter:image" content="https://congfan.dev/cong-fan-headshot.jpg" />
   <script type="application/ld+json">
     {
@@ -50,14 +56,16 @@
             "https://reelrush.com.au",
             "https://ascomponent.com.au",
             "https://ozcosystems.com.au"
-          ]
+          ],
+          "knowsLanguage": ["en", "zh"]
         },
         {
           "@type": "WebSite",
           "@id": "https://congfan.dev/#website",
           "name": "Cong Fan",
           "url": "https://congfan.dev/",
-          "description": "Personal site of Cong Fan: field notes, selected work, and practical AI product implementation from Brisbane.",
+          "description": "Brisbane-based help for AI product prototypes, workflow automation, internal tools, and repo rescue.",
+          "inLanguage": "en-AU",
           "publisher": { "@id": "https://congfan.dev/#person" }
         },
         {
@@ -67,8 +75,114 @@
           "url": "https://congfan.dev/",
           "email": "work@congfan.dev",
           "areaServed": ["Brisbane", "Australia", "Remote"],
-          "description": "Focused AI product implementation, workflow audits, agentic coding sprints, and repo debugging for founders and small teams.",
-          "founder": { "@id": "https://congfan.dev/#person" }
+          "description": "Focused AI product implementation, workflow automation audits, agentic coding sprints, and repo debugging for founders and small teams.",
+          "serviceType": [
+            "AI product prototyping",
+            "Workflow automation",
+            "Agentic coding sprint",
+            "Repo rescue",
+            "AI operations retainer"
+          ],
+          "founder": { "@id": "https://congfan.dev/#person" },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Cong Fan AI product and workflow services",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "name": "AI Product / Workflow Audit",
+                "priceCurrency": "AUD",
+                "description": "Clarify the user, workflow, build path, tools, risks, and next practical implementation step."
+              },
+              {
+                "@type": "Offer",
+                "name": "10-Day AI Product / Agentic Coding Sprint",
+                "priceCurrency": "AUD",
+                "description": "Turn one AI product idea, automation workflow, or agentic coding task into a working prototype or production-ready improvement."
+              },
+              {
+                "@type": "Offer",
+                "name": "Agentic Coding / Repo Debug Sprint",
+                "priceCurrency": "AUD",
+                "description": "Rescue one repo, route, billing flow, model workflow, or runtime behavior with focused implementation and verification."
+              },
+              {
+                "@type": "Offer",
+                "name": "Monthly AI Ops Retainer",
+                "priceCurrency": "AUD",
+                "description": "Ongoing AI product implementation, workflow improvements, repo support, and automation iteration."
+              }
+            ]
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://congfan.dev/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Do you work only with Brisbane businesses?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Cong Fan is based in Brisbane and works Australia-wide. Remote global work is possible for focused scopes, and English or Chinese is fine."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Should a project start with an audit or a build sprint?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Start with an audit when the workflow, risk, data shape, repo state, or commercial path is unclear. Start with a build sprint when there is already a clear owner, user, workflow, first useful version, budget, and definition of done."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What kind of AI workflow is a good fit?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Strong projects have a real owner, a repeated workflow, existing materials such as a repo, website, form, database, spreadsheet, automation, prototype, or examples, and a concrete definition of done."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Chat With Me the same as sending a brief?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Chat With Me helps shape the brief and can copy a draft into the form. The project brief form is the formal submission path, and the visitor must review and submit it."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "ItemList",
+          "@id": "https://congfan.dev/#field-notes-list",
+          "name": "Cong Fan field notes",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "url": "https://congfan.dev/field-notes/agentic-coding-loop",
+              "name": "How I use Codex and Claude Code to ship working prototypes"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "url": "https://congfan.dev/field-notes/ai-workflow-fit-check",
+              "name": "What I look for before taking on an AI workflow"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "url": "https://congfan.dev/field-notes/repo-problem-product-problem",
+              "name": "When a repo problem is really a product problem"
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "url": "https://congfan.dev/field-notes/keep-ai-builds-small",
+              "name": "Why I keep AI builds small"
+            }
+          ]
         }
       ]
     }
@@ -645,6 +759,21 @@
     .inline-link:hover {
       border-bottom-color: var(--fg);
     }
+    .case-proof {
+      display: grid;
+      gap: 10px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .case-proof span {
+      display: block;
+    }
+    .case-proof strong {
+      color: var(--fg);
+      font-weight: 600;
+    }
     .logo-row {
       display: flex;
       flex-wrap: wrap;
@@ -760,6 +889,115 @@
       color: var(--fg);
       border-bottom-color: var(--fg);
     }
+    .chatkit-launch {
+      position: fixed;
+      right: clamp(16px, 3vw, 28px);
+      bottom: clamp(16px, 3vw, 28px);
+      z-index: 24;
+      box-shadow: 0 18px 46px color-mix(in oklch, var(--fg) 18%, transparent);
+    }
+    .chatkit-dock {
+      position: fixed;
+      inset: 0;
+      z-index: 30;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.16s ease, visibility 0.16s ease;
+    }
+    .chatkit-dock.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+    .chatkit-backdrop {
+      position: absolute;
+      inset: 0;
+      border: 0;
+      background: color-mix(in oklch, var(--fg) 22%, transparent);
+    }
+    .chatkit-panel {
+      position: absolute;
+      right: clamp(16px, 3vw, 28px);
+      bottom: clamp(76px, 8vw, 92px);
+      width: min(430px, calc(100vw - 32px));
+      height: min(680px, calc(100vh - 116px));
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 24px 70px color-mix(in oklch, var(--fg) 20%, transparent);
+    }
+    .chatkit-panel-head {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: var(--gap-sm);
+      padding: 16px 16px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .chatkit-panel-head h2 {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.25;
+      font-weight: 600;
+    }
+    .chatkit-panel-head p {
+      margin: 2px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .chatkit-close {
+      flex: 0 0 auto;
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--fg);
+    }
+    .chatkit-frame {
+      position: relative;
+      min-height: 0;
+      height: 100%;
+      background: var(--surface);
+    }
+    .chatkit-frame openai-chatkit {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 360px;
+    }
+    .chatkit-frame-note {
+      position: absolute;
+      inset: 0;
+      display: none;
+      align-content: center;
+      gap: 12px;
+      padding: 24px;
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    .chatkit-frame-note.is-visible {
+      display: grid;
+    }
+    .chatkit-frame-note strong {
+      color: var(--fg);
+      font-weight: 600;
+    }
+    .chatkit-status {
+      margin: 0;
+      padding: 10px 14px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
 
     @media (max-width: 920px) {
       .grid-2,
@@ -856,6 +1094,23 @@
       .form-actions .btn {
         width: 100%;
       }
+      .chatkit-launch {
+        left: auto;
+        right: 16px;
+        bottom: 16px;
+        width: auto;
+        min-height: 42px;
+        padding: 11px 14px;
+        border-radius: 999px;
+        font-size: 14px;
+      }
+      .chatkit-panel {
+        left: 12px;
+        right: 12px;
+        bottom: 72px;
+        width: auto;
+        height: min(680px, calc(100vh - 92px));
+      }
     }
   </style>
 </head>
@@ -872,7 +1127,7 @@
         <a href="#fit">Fit</a>
         <a href="#brief">Brief</a>
       </nav>
-      <a class="btn btn-secondary" href="#brief">Email a project</a>
+      <a class="btn btn-secondary" href="#brief">Send a brief</a>
     </div>
   </header>
 
@@ -881,11 +1136,11 @@
       <div class="container hero-split">
         <div>
           <h1>I’m Cong Fan. I build practical AI products and workflows from Brisbane.</h1>
-          <p class="lead" style="margin-top: 20px;">This is my home base for field notes, selected work, and focused implementation help around agentic coding, automation, AI product prototypes, and repo-level debugging.</p>
+          <p class="lead" style="margin-top: 20px;">I help founders and small teams turn messy AI product ideas, internal workflows, repo problems, and manual business processes into working prototypes, automation, and shipped product improvements.</p>
           <div class="hero-cta" style="margin-top: 28px;">
             <a class="btn btn-primary" href="#work">See selected work</a>
-            <a class="btn btn-secondary" href="#field-notes">Read field notes</a>
-            <a class="btn btn-ghost btn-arrow" href="#brief">Send a project brief</a>
+            <a class="btn btn-secondary" href="#brief">Send a project brief</a>
+            <button class="btn btn-ghost btn-arrow" type="button" data-chatkit-open>Shape the brief with Chat</button>
           </div>
           <div class="hero-proof" aria-label="Quick profile">
             <div class="note-item">
@@ -897,8 +1152,8 @@
               <p>中文也可以。</p>
             </div>
             <div class="note-item">
-              <p class="meta">Shipped systems</p>
-              <p>ReelRush, Supabase, Stripe, n8n, and repo debugging work.</p>
+              <p class="meta">Practical work</p>
+              <p>AI prototypes, internal tools, billing flows, n8n automation, and repo debugging.</p>
             </div>
           </div>
           <div class="contact-line" aria-label="Contact links">
@@ -966,7 +1221,7 @@
             <p class="eyebrow">Selected work</p>
             <h2>Projects and Work Surfaces I Can Point To.</h2>
           </div>
-          <p class="lead">I avoid invented growth metrics. The proof here is more practical: shipped pages, working workflows, deployed systems, repo improvements, and public project surfaces you can open.</p>
+          <p class="lead">I avoid invented growth metrics. The proof here is practical: a real problem, what shipped, and the public or inspectable surface you can use to judge the work.</p>
         </div>
         <div class="case-grid">
           <article class="card case-card">
@@ -975,6 +1230,11 @@
               <h3>ReelRush</h3>
             </div>
             <p>My product build surface for AI image/video generation. Work includes generation flows, pricing and credits, public pages, deployment checks, and ongoing product operations.</p>
+            <div class="case-proof">
+              <span><strong>Problem:</strong> AI media products need more than a model call: inputs, generation flow, billing, retries, and public surfaces all have to line up.</span>
+              <span><strong>Shipped:</strong> Generation UI, pricing and credits work, public pages, deployment checks, and operating fixes.</span>
+              <span><strong>Evidence:</strong> Public product surface you can open.</span>
+            </div>
             <a href="https://reelrush.com.au">reelrush.com.au</a>
           </article>
           <article class="card case-card">
@@ -983,6 +1243,11 @@
               <h3>Ad Maker</h3>
             </div>
             <p>A small-business ad generation workflow inside ReelRush. The goal is practical output creation, not a generic chatbot or prompt demo.</p>
+            <div class="case-proof">
+              <span><strong>Problem:</strong> Small businesses need usable ad output, not another prompt playground.</span>
+              <span><strong>Shipped:</strong> A focused workflow that turns business context into reviewable ad creative.</span>
+              <span><strong>Evidence:</strong> Built inside the ReelRush product surface.</span>
+            </div>
             <a href="https://reelrush.com.au">reelrush.com.au</a>
           </article>
           <article class="card case-card">
@@ -991,6 +1256,11 @@
               <h3>n8n + Supabase</h3>
             </div>
             <p>Internal automation around company work emails, project management, metadata, and structured operational data. Built to reduce repeated manual coordination.</p>
+            <div class="case-proof">
+              <span><strong>Problem:</strong> Repeated emails, project updates, and metadata work create hidden admin drag.</span>
+              <span><strong>Shipped:</strong> Structured automation that connects AI extraction, reviewable metadata, and operational data.</span>
+              <span><strong>Evidence:</strong> Internal workflow pattern, described publicly without private company data.</span>
+            </div>
             <span class="meta">Internal workflow</span>
           </article>
           <article class="card case-card">
@@ -999,6 +1269,11 @@
               <h3>AS Component</h3>
             </div>
             <p>B2B industrial website work across product pages, SEO structure, and sales-support pages for a more discoverable product catalog.</p>
+            <div class="case-proof">
+              <span><strong>Problem:</strong> Industrial buyers need clearer product pages and search-friendly category structure.</span>
+              <span><strong>Shipped:</strong> Product-page structure, SEO-aware implementation, and sales-support surfaces.</span>
+              <span><strong>Evidence:</strong> Public B2B website surface you can inspect.</span>
+            </div>
             <a href="https://ascomponent.com.au">ascomponent.com.au</a>
           </article>
         </div>
@@ -1279,12 +1554,41 @@
       </div>
     </section>
 
+    <section class="section" id="faq" data-od-id="service-faq">
+      <div class="container grid-1-2">
+        <aside class="work-note">
+          <p class="meta">FAQ</p>
+          <p style="margin-top: 16px;">Short answers for people comparing AI workflow automation, product sprint, and repo rescue options.</p>
+        </aside>
+        <div class="notes-list">
+          <article class="note-item">
+            <h3>Do you work only with Brisbane businesses?</h3>
+            <p>No. I am Brisbane-based and work Australia-wide. Remote global work is possible for focused scopes, and English or Chinese is fine.</p>
+          </article>
+          <article class="note-item">
+            <h3>Should this start as an audit or a build sprint?</h3>
+            <p>Use an audit when the workflow, data, repo state, or commercial path is unclear. Use a sprint when there is already a clear owner, user, workflow, budget, and definition of done.</p>
+          </article>
+          <article class="note-item">
+            <h3>What AI workflow is a good fit?</h3>
+            <p>The strongest projects have a repeated action, current materials, a human review point, and a first useful output that can be tested against real inputs.</p>
+          </article>
+          <article class="note-item">
+            <h3>Is Chat With Me the same as sending a brief?</h3>
+            <p>No. Chat With Me helps shape the brief and can copy a draft into the form. The project brief form is the formal submission path.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="brief" data-od-id="project-brief">
       <div class="container grid-1-2">
         <aside class="availability-card card">
           <p class="meta">Contact</p>
           <h2 style="margin-top: 14px;">Send a Project Brief.</h2>
           <p style="margin: 16px 0 24px;">Tell me what you are trying to build or fix. I will reply with the next practical step: audit, sprint, repo rescue, retainer, or no-fit.</p>
+          <button class="btn btn-secondary" type="button" data-chatkit-open>Chat With Me</button>
+          <p class="meta" style="margin: 10px 0 18px;">Use Chat With Me if you want help shaping the brief first. Use the form when you are ready to send it.</p>
           <a class="btn btn-secondary" href="https://cal.com/congcong-fan-pcwpkd/ai-build-sprint-intro">Book an intro call</a>
           <a class="btn btn-ghost" href="mailto:work@congfan.dev?subject=Project%20brief%20for%20Cong%20Fan">Email directly</a>
           <p class="meta" id="calendar-placeholder" style="margin-top: 18px;">30-minute AI Build Sprint intro call via Cal.com.</p>
@@ -1329,7 +1633,7 @@
             </div>
             <div class="field">
               <label for="budget">Budget range</label>
-              <select class="select" id="budget" name="Budget range">
+              <select class="select" id="budget" name="budget">
                 <option>Audit: AUD $690-$1,500</option>
                 <option>Build sprint: AUD $3,500-$8,000</option>
                 <option>Repo debug sprint: AUD $2,500-$6,000</option>
@@ -1364,13 +1668,235 @@
       <nav class="footer-links" aria-label="Footer links">
         <a href="mailto:work@congfan.dev">Email</a>
         <a href="https://github.com/CongcongFan">GitHub</a>
+        <a href="#faq">FAQ</a>
         <a href="https://ozcosystems.com.au">OzCo Systems</a>
       </nav>
     </div>
   </footer>
+  <button class="btn btn-primary chatkit-launch" type="button" data-chatkit-open aria-controls="brief-chatkit-dock" aria-expanded="false">Chat With Me</button>
+  <div class="chatkit-dock" id="brief-chatkit-dock" aria-hidden="true">
+    <button class="chatkit-backdrop" type="button" data-chatkit-close aria-label="Close Chat With Me"></button>
+    <div class="chatkit-panel" role="dialog" aria-modal="true" aria-labelledby="chatkit-title">
+      <div class="chatkit-panel-head">
+        <div>
+          <h2 id="chatkit-title">Chat With Me</h2>
+          <p>Use this to shape your brief. The form below is where you send it.</p>
+        </div>
+        <button class="chatkit-close" type="button" data-chatkit-close aria-label="Close Chat With Me">&times;</button>
+      </div>
+      <div class="chatkit-frame">
+        <openai-chatkit id="brief-chatkit"></openai-chatkit>
+        <div class="chatkit-frame-note" data-chatkit-note aria-live="polite"></div>
+      </div>
+      <p class="chatkit-status" data-chatkit-status>Chat With Me loads after the OpenAI workflow and secrets are configured.</p>
+    </div>
+  </div>
   <script>
     const briefForm = document.querySelector(".brief-form");
     const briefStatus = document.querySelector(".form-status");
+    const chatkitDock = document.getElementById("brief-chatkit-dock");
+    const chatkitElement = document.getElementById("brief-chatkit");
+    const chatkitStatus = document.querySelector("[data-chatkit-status]");
+    const chatkitNote = document.querySelector("[data-chatkit-note]");
+    const chatkitLaunchers = document.querySelectorAll("[data-chatkit-open]");
+    const chatkitClosers = document.querySelectorAll("[data-chatkit-close]");
+    let chatkitInitialized = false;
+    let chatkitThinkingTimer = 0;
+    const chatkitReadyMessage = '"Use this in the form" copies a draft into the project brief below. It does not submit anything.';
+
+    const getChatkitUserId = () => {
+      const key = "congfan_chatkit_visitor_v8";
+      let existing = "";
+      try {
+        existing = window.localStorage?.getItem(key) || "";
+      } catch {}
+      if (existing) return existing;
+      const generatedId = globalThis.crypto?.randomUUID?.() || Date.now().toString(36);
+      const generated = `visitor-${generatedId}`;
+      try {
+        window.localStorage?.setItem(key, generated);
+      } catch {}
+      return generated;
+    };
+
+    const setChatkitStatus = (message) => {
+      if (chatkitStatus) chatkitStatus.textContent = message;
+    };
+
+    const setChatkitReadyStatus = () => {
+      setChatkitStatus(chatkitReadyMessage);
+    };
+
+    const scheduleChatkitReadyFallback = () => {
+      window.clearTimeout(chatkitThinkingTimer);
+      chatkitThinkingTimer = window.setTimeout(() => {
+        setChatkitReadyStatus();
+      }, 18000);
+    };
+
+    const showChatkitNote = (title, message, action = null) => {
+      if (!chatkitNote) return;
+      chatkitNote.replaceChildren();
+      const titleElement = document.createElement("strong");
+      titleElement.textContent = title;
+      const messageElement = document.createElement("span");
+      messageElement.textContent = message;
+      chatkitNote.append(titleElement, messageElement);
+      if (action) {
+        const actionElement = document.createElement("a");
+        actionElement.className = "btn btn-secondary";
+        actionElement.href = action.href;
+        actionElement.textContent = action.label;
+        chatkitNote.append(actionElement);
+      }
+      chatkitNote.classList.add("is-visible");
+    };
+
+    const hideChatkitNote = () => {
+      chatkitNote?.classList.remove("is-visible");
+    };
+
+    const setBriefField = (id, value) => {
+      const field = document.getElementById(id);
+      if (field && value) field.value = String(value).trim();
+    };
+
+    const fillBriefFromChatkit = (payload = {}) => {
+      setBriefField("build", payload.build || payload.workflow || payload.summary);
+      setBriefField("problem", payload.problem || payload.painPoint);
+      setBriefField("user", payload.user || payload.customer || payload.targetUser);
+      setBriefField("existing", payload.existing || payload.currentState);
+      setBriefField("tools", payload.tools || payload.integrations);
+      setBriefField("budget", payload.budget || payload.budgetRange);
+      setBriefField("timeline", payload.timeline);
+      setBriefField("done", payload.done || payload.definitionOfDone || payload.firstUsefulVersion);
+      if (briefStatus) {
+        briefStatus.className = "form-status";
+        briefStatus.textContent = "Assistant draft copied into the project brief. Review it, add budget, timeline, and any links, then send when ready.";
+      }
+      chatkitDock?.classList.remove("is-open");
+      chatkitDock?.setAttribute("aria-hidden", "true");
+      chatkitLaunchers.forEach((button) => button.setAttribute("aria-expanded", "false"));
+      window.history.replaceState(null, "", "#brief");
+      document.getElementById("brief")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.setTimeout(() => {
+        document.getElementById("build")?.focus({ preventScroll: true });
+      }, 320);
+    };
+
+    const handleChatkitAction = async (action, item) => {
+      const actionName = action?.name || action?.type || action?.id || "";
+      const payload = action?.payload || action?.data || action?.params || item?.data || item?.metadata || {};
+      if (["use_project_brief", "fill_project_brief", "send_to_brief_form"].includes(actionName)) {
+        fillBriefFromChatkit(payload);
+        return;
+      }
+      setChatkitStatus("Widget action received. Use the main brief form when you are ready to send details.");
+    };
+
+    const chatkitSessionEndpoint = () => {
+      if (window.location.protocol === "file:") {
+        return "https://congfan.dev/api/chatkit/session";
+      }
+      return "/api/chatkit/session";
+    };
+
+    const chatkitOptions = {
+      api: {
+        async getClientSecret(currentClientSecret) {
+          if (currentClientSecret) return currentClientSecret;
+          const response = await fetch(chatkitSessionEndpoint(), {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              user: getChatkitUserId(),
+            }),
+          });
+          const result = await response.json().catch(() => ({}));
+          if (!response.ok || !result.client_secret) {
+            throw new Error(result.error || "Chat With Me is not configured yet.");
+          }
+          return result.client_secret;
+        },
+      },
+      frameTitle: "Chat With Me",
+      widgets: {
+        onAction: handleChatkitAction,
+      },
+    };
+
+    const waitForChatkitElement = async () => {
+      if (!window.customElements?.whenDefined) return;
+      await Promise.race([
+        window.customElements.whenDefined("openai-chatkit"),
+        new Promise((_, reject) => {
+          window.setTimeout(() => reject(new Error("ChatKit web component did not load.")), 6000);
+        }),
+      ]);
+    };
+
+    const initChatkit = async () => {
+      if (!chatkitElement || chatkitInitialized) return;
+      try {
+        hideChatkitNote();
+        setChatkitStatus("Loading Chat With Me...");
+        await waitForChatkitElement();
+        if (typeof chatkitElement.setOptions !== "function") {
+          throw new Error("ChatKit web component did not load.");
+        }
+        chatkitElement.setOptions(chatkitOptions);
+        chatkitInitialized = true;
+        setChatkitStatus("Chat With Me is connecting...");
+      } catch (error) {
+        const message = error?.message || "Chat With Me is not configured yet.";
+        setChatkitStatus(message);
+        showChatkitNote("Chat With Me did not load.", message);
+      }
+    };
+
+    const openChatkit = () => {
+      chatkitDock?.classList.add("is-open");
+      chatkitDock?.setAttribute("aria-hidden", "false");
+      chatkitLaunchers.forEach((button) => button.setAttribute("aria-expanded", "true"));
+      initChatkit();
+    };
+
+    const closeChatkit = () => {
+      chatkitDock?.classList.remove("is-open");
+      chatkitDock?.setAttribute("aria-hidden", "true");
+      chatkitLaunchers.forEach((button) => button.setAttribute("aria-expanded", "false"));
+    };
+
+    chatkitLaunchers.forEach((button) => button.addEventListener("click", openChatkit));
+    chatkitClosers.forEach((button) => button.addEventListener("click", closeChatkit));
+    chatkitElement?.addEventListener("chatkit.ready", () => {
+      setChatkitReadyStatus();
+    });
+    chatkitElement?.addEventListener("chatkit.response.start", () => {
+      hideChatkitNote();
+      setChatkitStatus("Thinking...");
+      scheduleChatkitReadyFallback();
+    });
+    chatkitElement?.addEventListener("chatkit.response.end", () => {
+      window.clearTimeout(chatkitThinkingTimer);
+      setChatkitReadyStatus();
+    });
+    chatkitElement?.addEventListener("chatkit.error", (event) => {
+      const error = event?.detail?.error;
+      const message = error?.message || "Chat With Me could not load.";
+      const isLocalFile = window.location.protocol === "file:";
+      setChatkitStatus(message);
+      showChatkitNote(
+        "Chat With Me did not load.",
+        isLocalFile
+          ? "Open the live HTTPS site to use this widget. Agent Builder domain verification does not support file previews."
+          : message,
+        isLocalFile ? { href: "https://congfan.dev/#brief", label: "Open live site" } : null
+      );
+    });
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeChatkit();
+    });
 
     if (briefForm && briefStatus) {
       briefForm.addEventListener("submit", async (event) => {

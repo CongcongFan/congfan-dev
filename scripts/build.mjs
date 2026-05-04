@@ -12,6 +12,12 @@ for (const file of [
   "sitemap.xml",
   "llms.txt",
   "_headers",
+  "favicon.svg",
+  "favicon-32.png",
+  "favicon-192.png",
+  "favicon-512.png",
+  "apple-touch-icon.png",
+  "site.webmanifest",
 ]) {
   await cp(file, `dist/${file}`);
 }

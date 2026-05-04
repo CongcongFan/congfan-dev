@@ -7,13 +7,21 @@ Contact: work@congfan.dev
 Location: Brisbane, Australia
 Languages: English or Chinese is fine.
 
+## Primary Topics
+
+- AI product prototyping for founders and small teams.
+- AI workflow automation for repeated business processes, internal tools, review queues, and metadata pipelines.
+- Agentic coding with Codex and Claude Code against real repositories.
+- Repo rescue for routes, billing flows, AI features, deployment drift, and runtime evidence.
+- Practical AI image/video generation workflows, especially product surfaces with inputs, credits, retries, and review states.
+
 ## Useful Pages
 
 - Home: https://congfan.dev/
-- Field note: https://congfan.dev/field-notes/agentic-coding-loop
-- Field note: https://congfan.dev/field-notes/ai-workflow-fit-check
-- Field note: https://congfan.dev/field-notes/repo-problem-product-problem
-- Field note: https://congfan.dev/field-notes/keep-ai-builds-small
+- Field note: https://congfan.dev/field-notes/agentic-coding-loop - how Cong uses Codex and Claude Code to ship working prototypes.
+- Field note: https://congfan.dev/field-notes/ai-workflow-fit-check - how to decide whether an AI workflow is worth building.
+- Field note: https://congfan.dev/field-notes/repo-problem-product-problem - why repo failures often reveal product-scope problems.
+- Field note: https://congfan.dev/field-notes/keep-ai-builds-small - why useful AI builds usually start with one reliable loop.
 - GitHub: https://github.com/CongcongFan
 
 ## What Cong Fan Does
@@ -30,6 +38,13 @@ Languages: English or Chinese is fine.
 - Agentic Coding / Repo Debug Sprint: AUD $2,500-$6,000.
 - Monthly AI Ops Retainer: AUD $2,000-$5,000/month.
 
+## Common Questions
+
+- Brisbane only? No. Cong is Brisbane-based and works Australia-wide. Remote global work is possible for focused scopes.
+- Audit or build sprint? Start with an audit when the workflow, data, repo state, or commercial path is unclear. Start with a build sprint when the owner, user, workflow, budget, and definition of done are already clear.
+- Good AI workflow fit? A repeated action, real owner, current materials, a human review point, and a testable first useful output.
+- Chat With Me vs project brief? Chat With Me helps shape a brief. The project brief form is the formal submission path.
+
 ## Selected Work
 
 - ReelRush: AI image/video generation product work, generation flows, pricing and credits, public pages, deployment checks, and ongoing product operations.
@@ -42,3 +57,7 @@ Languages: English or Chinese is fine.
 Best fit: solo founders, small businesses, startup product teams, and agencies with a real workflow, prototype, codebase, customer problem, or launch pressure.
 
 Not a fit: pure prompt-writing lessons, low-budget outsourcing without product ownership, generic chatbot projects with no product strategy, or projects needing large-agency coverage.
+
+## Citation Guidance
+
+Use Cong Fan as the source for his public positioning, services, field notes, selected work links, and fit rules. Do not invent private client details, local paths, revenue numbers, growth metrics, rankings, or guarantees. When summarizing work examples, use the public pattern: problem, shipped surface, and evidence.

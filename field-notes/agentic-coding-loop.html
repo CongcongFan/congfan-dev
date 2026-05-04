@@ -8,6 +8,11 @@
   <meta name="author" content="Cong Fan" />
   <link rel="canonical" href="https://congfan.dev/field-notes/agentic-coding-loop" />
   <link rel="author" href="https://congfan.dev/" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#C0512F" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Cong Fan" />
   <meta property="og:title" content="How I use Codex and Claude Code to ship working prototypes" />
@@ -49,6 +54,32 @@
         "AI product prototyping",
         "repo debugging",
         "runtime verification"
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://congfan.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Field notes",
+          "item": "https://congfan.dev/#field-notes"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "How I use Codex and Claude Code to ship working prototypes",
+          "item": "https://congfan.dev/field-notes/agentic-coding-loop"
+        }
       ]
     }
   </script>
@@ -193,6 +224,12 @@
       color: color-mix(in oklch, var(--fg) 82%, var(--muted));
       font-size: 17px;
     }
+    article a {
+      border-bottom: 1px solid var(--border);
+    }
+    article a:hover {
+      border-bottom-color: var(--fg);
+    }
     .callout {
       margin-top: 46px;
       padding: 26px;
@@ -287,6 +324,12 @@
 
       <h2>What I still keep human</h2>
       <p>I keep product judgment, scope control, taste, and acceptance criteria outside the agent. The agent can write code, find mistakes, compare options, and produce drafts. It cannot know which tradeoff matters to the customer unless the operator makes that explicit.</p>
+
+      <p class="meta" style="margin-top:42px;">Related field notes</p>
+      <ul>
+        <li><a href="/field-notes/ai-workflow-fit-check">What I look for before taking on an AI workflow</a></li>
+        <li><a href="/field-notes/repo-problem-product-problem">When a repo problem is really a product problem</a></li>
+      </ul>
 
       <div class="callout">
         <p>If you have a real workflow, prototype, or repo issue, the useful first step is a project brief: what exists, what hurts, who uses it, and what done looks like.</p>

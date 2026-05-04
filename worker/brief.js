@@ -32,6 +32,10 @@ const headerSafe = (value) => clean(value).replace(/[\r\n]/g, " ");
 
 const looksLikeEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
+const safeUserId = (value) => clean(value)
+  .replace(/[^a-zA-Z0-9_.:-]/g, "")
+  .slice(0, 128);
+
 async function readPayload(request) {
   const contentType = request.headers.get("content-type") || "";
   if (contentType.includes("application/json")) {
@@ -89,12 +93,56 @@ function createMessage(payload, request) {
   return new EmailMessage(from, to, raw);
 }
 
+async function createChatkitSession(request, env) {
+  if (!env.OPENAI_API_KEY || !env.CHATKIT_WORKFLOW_ID) {
+    return json({ ok: false, error: "Brief assistant is not configured yet." }, 503);
+  }
+
+  let payload = {};
+  try {
+    payload = await readPayload(request);
+  } catch {
+    return json({ ok: false, error: "Could not start Chat With Me." }, 400);
+  }
+
+  const user = safeUserId(payload.user) || `visitor-${crypto.randomUUID()}`;
+  const workflow = { id: env.CHATKIT_WORKFLOW_ID };
+  if (env.CHATKIT_WORKFLOW_VERSION) {
+    workflow.version = env.CHATKIT_WORKFLOW_VERSION;
+  }
+
+  const response = await fetch("https://api.openai.com/v1/chatkit/sessions", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "OpenAI-Beta": "chatkit_beta=v1",
+      "Authorization": `Bearer ${env.OPENAI_API_KEY}`,
+    },
+    body: JSON.stringify({
+      workflow,
+      user,
+    }),
+  });
+
+  const result = await response.json().catch(() => ({}));
+  if (!response.ok || !result.client_secret) {
+    console.error("ChatKit session failed", response.status, result?.error?.message || "unknown");
+    return json({ ok: false, error: "Brief assistant could not start right now." }, 502);
+  }
+
+  return json({ client_secret: result.client_secret });
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
     if (request.method === "OPTIONS") {
       return new Response(null, { status: 204 });
+    }
+
+    if (url.pathname === "/api/chatkit/session" && request.method === "POST") {
+      return createChatkitSession(request, env);
     }
 
     if (url.pathname !== "/api/brief" || request.method !== "POST") {
