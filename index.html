@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cong Fan · AI Product Operator in Brisbane</title>
-  <meta name="description" content="Brisbane-based AI product operator helping founders and small teams ship AI products, automation workflows, and working prototypes faster." />
+  <title>Cong Fan · AI Product Work and Field Notes</title>
+  <meta name="description" content="Personal site of Cong Fan, a Brisbane-based AI product operator writing about agentic coding, practical AI workflows, and shipped product work." />
   <link rel="canonical" href="https://congfan.dev/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Cong Fan" />
-  <meta property="og:title" content="Cong Fan · AI Product Operator in Brisbane" />
-  <meta property="og:description" content="Brisbane-based AI product operator helping founders and small teams ship AI products, automation workflows, and working prototypes faster." />
+  <meta property="og:title" content="Cong Fan · AI Product Work and Field Notes" />
+  <meta property="og:description" content="Personal site of Cong Fan: field notes, selected work, and practical AI product implementation from Brisbane." />
   <meta property="og:url" content="https://congfan.dev/" />
-  <meta property="og:image" content="https://congfan.dev/hero-operator.png" />
+  <meta property="og:image" content="https://congfan.dev/cong-fan-headshot.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Cong Fan · AI Product Operator in Brisbane" />
-  <meta name="twitter:description" content="AI product builds, agentic coding sprints, workflow audits, and working prototypes for founders and small teams." />
-  <meta name="twitter:image" content="https://congfan.dev/hero-operator.png" />
+  <meta name="twitter:title" content="Cong Fan · AI Product Work and Field Notes" />
+  <meta name="twitter:description" content="Field notes, selected work, and practical AI product implementation from Brisbane." />
+  <meta name="twitter:image" content="https://congfan.dev/cong-fan-headshot.jpg" />
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -24,7 +24,7 @@
       "url": "https://congfan.dev/",
       "email": "work@congfan.dev",
       "areaServed": ["Brisbane", "Australia", "Remote"],
-      "description": "Brisbane-based AI product operator helping founders and small teams ship AI products, automation workflows, and working prototypes faster.",
+      "description": "Personal site of Cong Fan, a Brisbane-based AI product operator writing about agentic coding, practical AI workflows, and shipped product work.",
       "sameAs": ["https://github.com/CongcongFan", "https://reelrush.com.au", "https://ascomponent.com.au", "https://ozcosystems.com.au"]
     }
   </script>
@@ -81,6 +81,17 @@
     button { font: inherit; cursor: pointer; }
     p { text-wrap: pretty; }
     h1, h2, h3, h4 { text-wrap: balance; }
+    main { display: flex; flex-direction: column; }
+    #top { order: 1; }
+    #who { order: 2; }
+    #work { order: 3; }
+    #field-notes { order: 4; }
+    #operator-notes { order: 5; }
+    #capabilities { order: 6; }
+    #process { order: 7; }
+    #fit { order: 8; }
+    #offers { order: 9; }
+    #brief { order: 10; }
 
     .container {
       max-width: var(--container);
@@ -326,7 +337,7 @@
     .hero-center .hero-cta { justify-content: center; }
     .hero-split {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(360px, 0.9fr);
+      grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.75fr);
       gap: var(--gap-2xl);
       align-items: center;
     }
@@ -355,8 +366,20 @@
       height: 100%;
       min-height: 520px;
       object-fit: cover;
-      object-position: center;
+      object-position: center 34%;
       filter: saturate(0.94) contrast(1.02);
+    }
+    .hero-proof {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--gap-sm);
+      margin-top: var(--gap-lg);
+    }
+    .hero-proof .note-item {
+      padding-top: 12px;
+    }
+    .hero-proof .meta {
+      color: var(--fg);
     }
     .hero-note {
       position: absolute;
@@ -719,6 +742,9 @@
         gap: 6px;
       }
       .log-row .pull { text-align: left; }
+      .hero-proof {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 640px) {
@@ -784,14 +810,14 @@
       <a class="logo" href="#top" aria-label="Back to top">Cong Fan</a>
       <nav aria-label="Main navigation">
         <a href="#who">Who</a>
-        <a href="#offers">Offers</a>
-        <a href="#capabilities">Capabilities</a>
         <a href="#work">Work</a>
         <a href="#field-notes">Notes</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#offers">Services</a>
         <a href="#fit">Fit</a>
         <a href="#brief">Brief</a>
       </nav>
-      <a class="btn btn-secondary" href="#brief">Send brief</a>
+      <a class="btn btn-secondary" href="#brief">Email a project</a>
     </div>
   </header>
 
@@ -799,12 +825,26 @@
     <section class="section hero" id="top" data-od-id="hero-split">
       <div class="container hero-split">
         <div>
-          <p class="eyebrow">Brisbane-based AI product operator</p>
-          <h1>Ship AI Products and Agentic Workflows Faster.</h1>
-          <p class="lead" style="margin-top: 20px;">I help founders and small teams turn real workflows, messy prototypes, and repo problems into usable AI products, automations, and working systems within days, not months.</p>
+          <h1>I’m Cong Fan. I build practical AI products and workflows from Brisbane.</h1>
+          <p class="lead" style="margin-top: 20px;">This is my home base for field notes, selected work, and focused implementation help around agentic coding, automation, AI product prototypes, and repo-level debugging.</p>
           <div class="hero-cta" style="margin-top: 28px;">
-            <a class="btn btn-primary" href="https://cal.com/congcong-fan-pcwpkd/ai-build-sprint-intro">Start a 10-day AI build sprint</a>
-            <a class="btn btn-ghost btn-arrow" href="#work">View shipped work</a>
+            <a class="btn btn-primary" href="#work">See selected work</a>
+            <a class="btn btn-secondary" href="#field-notes">Read field notes</a>
+            <a class="btn btn-ghost btn-arrow" href="#brief">Send a project brief</a>
+          </div>
+          <div class="hero-proof" aria-label="Quick profile">
+            <div class="note-item">
+              <p class="meta">Based in Brisbane</p>
+              <p>Australia-wide and remote global.</p>
+            </div>
+            <div class="note-item">
+              <p class="meta">I work in English or Chinese</p>
+              <p>中文也可以。</p>
+            </div>
+            <div class="note-item">
+              <p class="meta">Limited capacity</p>
+              <p>1 build sprint and 2 audits per month.</p>
+            </div>
           </div>
           <div class="contact-line" aria-label="Contact links">
             <a href="mailto:work@congfan.dev">Email</a>
@@ -813,10 +853,10 @@
           </div>
         </div>
         <figure class="hero-visual">
-          <img src="hero-operator.png" alt="Abstract operator workspace for AI product and agentic coding work" />
+          <img src="cong-fan-headshot.jpg" alt="Cong Fan" />
           <figcaption class="hero-note">
-            <span class="meta">Cong Fan · English or Chinese is fine</span>
-            <span class="meta">Product · Agents · Shipping</span>
+            <span class="meta">Cong Fan · AI product operator</span>
+            <span class="meta">Product · Code · Workflows</span>
           </figcaption>
         </figure>
       </div>
@@ -826,31 +866,31 @@
       <div class="container stack" style="gap: 40px;">
         <div class="grid-2-1">
           <div>
-            <p class="eyebrow">Who I help</p>
-            <h2>Founders and Small Teams With Something Real to Ship.</h2>
+            <p class="eyebrow">Who this is for</p>
+            <h2>People With a Real Workflow, Prototype, or Product Problem.</h2>
           </div>
-          <p class="lead">The best fit is a solo founder or small team with a real workflow, messy prototype, repo issue, or AI product idea that needs a technical operator to turn it into something usable.</p>
+          <p class="lead">I am not trying to teach generic prompting. I work best when there is a concrete product surface, internal workflow, codebase, customer problem, or launch pressure that needs practical implementation.</p>
         </div>
         <div class="audience-grid">
           <article class="card audience-card">
             <div>
-              <span class="tag">Priority 1</span>
+              <span class="tag">Founders</span>
               <h3 style="margin-top: 18px;">Solo founders</h3>
               <p>Real product ideas, early customers, rough prototypes, or a workflow that needs to become a product surface.</p>
             </div>
           </article>
           <article class="card audience-card">
             <div>
-              <span class="tag">Priority 2</span>
+              <span class="tag">Operators</span>
               <h3 style="margin-top: 18px;">Small businesses</h3>
               <p>Internal tools, AI workflows, admin automation, content systems, and practical integrations that reduce repeated work.</p>
             </div>
           </article>
           <article class="card audience-card">
             <div>
-              <span class="tag">Priority 3</span>
+              <span class="tag">Product teams</span>
               <h3 style="margin-top: 18px;">Startup product teams</h3>
-              <p>Fast prototypes, agentic coding lanes, repo rescue, billing validation, model workflow fixes, or production-ready improvements.</p>
+              <p>Fast prototypes, unstable AI features, billing validation, model workflow fixes, or production-ready improvements.</p>
             </div>
           </article>
           <article class="card audience-card">
@@ -864,67 +904,21 @@
       </div>
     </section>
 
-    <section class="section" id="offers" data-od-id="offers">
-      <div class="container stack" style="gap: 56px;">
-        <div class="grid-2-1">
-          <div>
-            <p class="eyebrow">Core offer</p>
-            <h2>10-Day AI Product / Agentic Coding Sprint.</h2>
-          </div>
-          <p class="lead">A focused sprint for one product surface, workflow, integration, repo rescue, or prototype. The outcome should be a shipped artifact, a verified workflow, or a clear handoff, not a strategy deck.</p>
-        </div>
-        <div class="grid-4">
-          <article class="card offer-card is-lead">
-            <div>
-              <span class="pill">Primary CTA</span>
-              <h3 style="margin-top: 18px;">10-Day AI Build Sprint</h3>
-              <p>Turn one AI product idea, automation workflow, or agentic coding task into a working prototype or production-ready improvement.</p>
-            </div>
-            <div class="range num">AUD $3,500-$8,000<small>Limited to 1 build sprint per month</small></div>
-          </article>
-          <article class="card offer-card">
-            <div>
-              <span class="tag">Secondary</span>
-              <h3 style="margin-top: 18px;">AI Product / Workflow Audit</h3>
-              <p>Clarify the user, workflow, build path, tools, risks, and next practical implementation step.</p>
-            </div>
-            <div class="range num">AUD $690-$1,500<small>2 audit slots per month</small></div>
-          </article>
-          <article class="card offer-card">
-            <div>
-              <span class="tag">Repo rescue</span>
-              <h3 style="margin-top: 18px;">Agentic Coding Sprint</h3>
-              <p>Use coding agents with real repo inspection, debugging, tests, browser checks, and review-ready handoff.</p>
-            </div>
-            <div class="range num">AUD $2,500-$6,000<small>Scoped around one repo or workflow</small></div>
-          </article>
-          <article class="card offer-card">
-            <div>
-              <span class="tag">Ongoing</span>
-              <h3 style="margin-top: 18px;">Monthly AI Ops Retainer</h3>
-              <p>Maintain automations, prompts, billing flows, internal tools, model workflows, and operating docs as the product changes.</p>
-            </div>
-            <div class="range num">AUD $2,000-$5,000/mo<small>For teams already shipping</small></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <section class="section" id="capabilities" data-od-id="capabilities">
       <div class="container stack" style="gap: 40px;">
         <div class="grid-2-1">
           <div>
             <p class="eyebrow">Capability stack</p>
-            <h2>Product Thinking, Technical Implementation, AI Workflows, Shipping.</h2>
+            <h2>How I Usually Help.</h2>
           </div>
-          <p class="lead">Not a generic AI consultant, prompt engineer, automation VA, or basic web developer. The work sits where product judgment, repo-level implementation, and AI systems meet.</p>
+          <p class="lead">The useful part is usually not the tool choice. It is turning a vague or unstable workflow into something a customer, operator, or developer can actually use and verify.</p>
         </div>
         <div class="capability-grid">
           <article class="card capability-card">
             <div>
               <div class="capability-icon"><svg viewBox="0 0 24 24"><path d="M6 8h12M6 16h12M8 4l-4 8 4 8M16 4l4 8-4 8"/></svg></div>
               <h3>Agentic coding</h3>
-              <p>Codex, Claude Code, repo inspection, task decomposition, verification, and handoff.</p>
+              <p>Using Codex and Claude Code against the real repo: inspect, change, test, verify, and leave a clear handoff.</p>
             </div>
             <div class="logo-row"><span class="logo-chip">Codex</span><span class="logo-chip">Claude Code</span></div>
           </article>
@@ -932,7 +926,7 @@
             <div>
               <div class="capability-icon"><svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="M8 10h8M8 14h5"/></svg></div>
               <h3>AI prototyping</h3>
-              <p>Turn vague ideas into product flows, working screens, model calls, and testable workflows.</p>
+              <p>Turning rough product ideas into working screens, model calls, data flow, and testable user paths.</p>
             </div>
             <div class="logo-row"><span class="logo-chip">AI product</span><span class="logo-chip">MVP</span></div>
           </article>
@@ -940,7 +934,7 @@
             <div>
               <div class="capability-icon"><svg viewBox="0 0 24 24"><path d="M5 19V5h14v14z"/><path d="M9 9h6v6H9z"/></svg></div>
               <h3>Supabase architecture</h3>
-              <p>Data models, auth-aware workflows, metadata pipelines, RLS-aware implementation, and production checks.</p>
+              <p>Data models, auth-aware workflows, metadata pipelines, access rules, and production checks.</p>
             </div>
             <div class="logo-row"><span class="logo-chip">Supabase</span><span class="logo-chip">Postgres</span></div>
           </article>
@@ -956,7 +950,7 @@
             <div>
               <div class="capability-icon"><svg viewBox="0 0 24 24"><path d="M4 12h5l3-6 3 12 3-6h2"/></svg></div>
               <h3>AI image/video workflows</h3>
-              <p>Model routing, prompt flows, image/video generation, asset review, and practical product UX.</p>
+              <p>Product flows around image/video generation: inputs, model routing, output review, credits, and retry paths.</p>
             </div>
             <div class="logo-row"><span class="logo-chip">GPT Image</span><span class="logo-chip">Seedance</span></div>
           </article>
@@ -972,7 +966,7 @@
             <div>
               <div class="capability-icon"><svg viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h10"/><path d="M18 17l2 2-2 2"/></svg></div>
               <h3>Repo debugging</h3>
-              <p>Trace failures through code, logs, browser state, data rows, deployments, and exact runtime evidence.</p>
+              <p>Tracing failures through code, logs, browser state, data rows, deployments, and exact runtime evidence.</p>
             </div>
             <div class="logo-row"><span class="logo-chip">Debug</span><span class="logo-chip">Verify</span></div>
           </article>
@@ -993,9 +987,9 @@
         <div class="grid-2-1">
           <div>
             <p class="eyebrow">Selected work</p>
-            <h2>Shipped Artifacts, Working Workflows, Production-Ready Improvements.</h2>
+            <h2>Projects and Work Surfaces I Can Point To.</h2>
           </div>
-          <p class="lead">No invented growth metrics. The proof is in shipped product foundations, deployed systems, billing validation, working AI workflows, and durable repo improvements.</p>
+          <p class="lead">I avoid invented growth metrics. The proof here is more practical: shipped pages, working workflows, deployed systems, repo improvements, and public project surfaces you can open.</p>
         </div>
         <div class="case-grid">
           <article class="card case-card">
@@ -1003,7 +997,7 @@
               <span class="tag">AI video / image product</span>
               <h3>ReelRush</h3>
             </div>
-            <p>AI video and image product foundation, generation workflows, pricing and credit systems, public pages, and production-oriented product operations.</p>
+            <p>My product build surface for AI image/video generation. Work includes generation flows, pricing and credits, public pages, deployment checks, and ongoing product operations.</p>
             <a href="https://reelrush.com.au">reelrush.com.au</a>
           </article>
           <article class="card case-card">
@@ -1011,7 +1005,7 @@
               <span class="tag">Small business AI workflow</span>
               <h3>Ad Maker</h3>
             </div>
-            <p>Small business AI ad generation workflow inside ReelRush, designed around practical output generation rather than generic prompt demos.</p>
+            <p>A small-business ad generation workflow inside ReelRush. The goal is practical output creation, not a generic chatbot or prompt demo.</p>
             <a href="https://reelrush.com.au">reelrush.com.au</a>
           </article>
           <article class="card case-card">
@@ -1019,7 +1013,7 @@
               <span class="tag">Automation / metadata</span>
               <h3>n8n + Supabase</h3>
             </div>
-            <p>AI automation and metadata workflow optimized for company work emails, project management, and structured operational data.</p>
+            <p>Internal automation around company work emails, project management, metadata, and structured operational data. Built to reduce repeated manual coordination.</p>
             <span class="meta">Internal workflow</span>
           </article>
           <article class="card case-card">
@@ -1027,7 +1021,7 @@
               <span class="tag">B2B website / SEO</span>
               <h3>AS Component</h3>
             </div>
-            <p>B2B industrial website, SEO, and product pages that enhanced side sales surfaces and improved website discoverability.</p>
+            <p>B2B industrial website work across product pages, SEO structure, and sales-support pages for a more discoverable product catalog.</p>
             <a href="https://ascomponent.com.au">ascomponent.com.au</a>
           </article>
         </div>
@@ -1038,7 +1032,7 @@
       <div class="container grid-1-2">
         <aside class="work-note">
           <p class="meta">Process motion</p>
-          <p style="margin-top: 16px;">The loop is intentionally small: brief, inspect, build, verify, hand off. Motion supports the working method here; the hero stays anchored by the operator visual.</p>
+          <p style="margin-top: 16px;">The loop is intentionally small: brief, inspect, build, verify, hand off. I care more about evidence than performance theatre.</p>
         </aside>
         <div class="motion-frame" aria-label="Agentic workflow process video">
           <video src="agentic-workflow-loop.mp4" controls muted playsinline preload="metadata"></video>
@@ -1083,55 +1077,14 @@
       </div>
     </section>
 
-    <section class="section" id="ranges" data-od-id="range-table">
-      <div class="container">
-        <div style="text-align: center; max-width: 46ch; margin: 0 auto 56px;">
-          <p class="eyebrow">Pricing</p>
-          <h2>Pick the Engagement Shape Before the Price.</h2>
-          <p class="lead" style="margin: 16px auto 0;">Ranges are scoping anchors in Australian dollars. Final scope depends on the workflow, codebase, integrations, timeline, and definition of done.</p>
-        </div>
-        <table class="ds-table">
-          <thead>
-            <tr>
-              <th>Engagement</th>
-              <th>Best fit</th>
-              <th class="num-col">AUD</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>AI Product / Workflow Audit</strong></td>
-              <td>When the build path, users, workflow, tools, or risk profile needs to be clarified first.</td>
-              <td class="num-col">AUD $690-$1,500</td>
-            </tr>
-            <tr style="border-top: 1px solid var(--fg);">
-              <td><strong>10-Day AI Product / Agentic Coding Sprint</strong></td>
-              <td>When one AI product surface, workflow, or prototype needs to move fast.</td>
-              <td class="num-col"><strong>AUD $3,500-$8,000</strong></td>
-            </tr>
-            <tr>
-              <td><strong>Agentic Coding / Repo Debug Sprint</strong></td>
-              <td>When the repo, billing flow, model workflow, route, or runtime behavior needs focused rescue.</td>
-              <td class="num-col">AUD $2,500-$6,000</td>
-            </tr>
-            <tr>
-              <td><strong>Monthly Retainer</strong></td>
-              <td>When an active product needs ongoing AI ops, automation, prompts, billing, and workflow maintenance.</td>
-              <td class="num-col">AUD $2,000-$5,000/mo</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
     <section class="section" id="operator-notes" data-od-id="operator-notes">
       <div class="container grid-1-2">
         <aside class="work-note">
-          <p class="meta">Operator notes</p>
+          <p class="meta">Working style</p>
           <p style="margin-top: 16px;">I bias toward proof over performance. The useful output is something you can inspect, run, test, hand off, or deploy.</p>
           <figure class="operator-profile">
-            <img src="cong-fan-headshot.jpg" alt="Cong Fan" loading="lazy" />
-            <figcaption class="meta">Brisbane-based. Product thinking, technical implementation, and shipping.</figcaption>
+            <img src="hero-operator.png" alt="Abstract workspace for AI product and agentic coding work" loading="lazy" />
+            <figcaption class="meta">The workflow is usually part product review, part repo inspection, part runtime verification.</figcaption>
           </figure>
         </aside>
         <div class="notes-list">
@@ -1167,7 +1120,7 @@
       <div class="container grid-1-2">
         <aside class="work-note">
           <p class="meta">Field notes</p>
-          <p style="margin-top: 16px;">Short notes on how I use AI agents, product constraints, repo truth, and runtime verification in real builds.</p>
+          <p style="margin-top: 16px;">Short notes from real builds: how I use AI agents, product constraints, repo truth, and runtime verification.</p>
         </aside>
         <div class="notes-list">
           <article class="note-item">
@@ -1175,17 +1128,102 @@
             <p>A practical loop for founder builds: brief, inspect, constrain, delegate, verify, and leave behind something usable.</p>
           </article>
           <article class="note-item">
-            <h3>More notes soon</h3>
-            <p>Future notes will cover AI workflow audits, repo rescue, and when an automation should become a product surface.</p>
+            <h3>What I look for before taking on an AI workflow</h3>
+            <p>The owner, user, repeated action, existing toolchain, failure mode, and definition of done matter more than the model name.</p>
+          </article>
+          <article class="note-item">
+            <h3>When a repo problem is really a product problem</h3>
+            <p>Runtime bugs often expose unclear scope, pricing truth, missing evidence, or a workflow that was never made inspectable.</p>
+          </article>
+          <article class="note-item">
+            <h3>Why I keep AI builds small</h3>
+            <p>A narrow surface is easier to inspect, ship, and learn from. Most useful AI systems start as one reliable loop.</p>
           </article>
         </div>
+      </div>
+    </section>
+
+    <section class="section" id="offers" data-od-id="offers">
+      <div class="container stack" style="gap: 56px;">
+        <div class="grid-2-1">
+          <div>
+            <p class="eyebrow">Services</p>
+            <h2>Focused Help When the Work Needs to Move.</h2>
+          </div>
+          <p class="lead">If the notes and work above match what you are trying to do, these are the shapes I usually use. The outcome should be a shipped artifact, a verified workflow, or a clear handoff, not a strategy deck.</p>
+        </div>
+        <div class="grid-4">
+          <article class="card offer-card is-lead">
+            <div>
+              <span class="tag">Build sprint</span>
+              <h3 style="margin-top: 18px;">10-Day AI Build Sprint</h3>
+              <p>Turn one AI product idea, automation workflow, or agentic coding task into a working prototype or production-ready improvement.</p>
+            </div>
+            <div class="range num">AUD $3,500-$8,000<small>Limited to 1 build sprint per month</small></div>
+          </article>
+          <article class="card offer-card">
+            <div>
+              <span class="tag">Audit</span>
+              <h3 style="margin-top: 18px;">AI Product / Workflow Audit</h3>
+              <p>Clarify the user, workflow, build path, tools, risks, and next practical implementation step.</p>
+            </div>
+            <div class="range num">AUD $690-$1,500<small>2 audit slots per month</small></div>
+          </article>
+          <article class="card offer-card">
+            <div>
+              <span class="tag">Repo debugging</span>
+              <h3 style="margin-top: 18px;">Agentic Coding Sprint</h3>
+              <p>Use coding agents with real repo inspection, debugging, tests, browser checks, and review-ready handoff.</p>
+            </div>
+            <div class="range num">AUD $2,500-$6,000<small>Scoped around one repo or workflow</small></div>
+          </article>
+          <article class="card offer-card">
+            <div>
+              <span class="tag">Ongoing support</span>
+              <h3 style="margin-top: 18px;">Monthly AI Ops Retainer</h3>
+              <p>Maintain automations, prompts, billing flows, internal tools, model workflows, and operating docs as the product changes.</p>
+            </div>
+            <div class="range num">AUD $2,000-$5,000/mo<small>For teams already shipping</small></div>
+          </article>
+        </div>
+        <table class="ds-table" aria-label="Service pricing ranges">
+          <thead>
+            <tr>
+              <th>Engagement</th>
+              <th>Best fit</th>
+              <th class="num-col">AUD</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>AI Product / Workflow Audit</strong></td>
+              <td>When the build path, users, workflow, tools, or risk profile needs to be clarified first.</td>
+              <td class="num-col">AUD $690-$1,500</td>
+            </tr>
+            <tr style="border-top: 1px solid var(--fg);">
+              <td><strong>10-Day AI Product / Agentic Coding Sprint</strong></td>
+              <td>When one AI product surface, workflow, or prototype needs to move fast.</td>
+              <td class="num-col"><strong>AUD $3,500-$8,000</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Agentic Coding / Repo Debug Sprint</strong></td>
+              <td>When the repo, billing flow, model workflow, route, or runtime behavior needs focused rescue.</td>
+              <td class="num-col">AUD $2,500-$6,000</td>
+            </tr>
+            <tr>
+              <td><strong>Monthly Retainer</strong></td>
+              <td>When an active product needs ongoing AI ops, automation, prompts, billing, and workflow maintenance.</td>
+              <td class="num-col">AUD $2,000-$5,000/mo</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
     <section class="section" id="brief" data-od-id="project-brief">
       <div class="container grid-1-2">
         <aside class="availability-card card">
-          <p class="meta">Single desired action</p>
+          <p class="meta">Contact</p>
           <h2 style="margin-top: 14px;">Send a Project Brief.</h2>
           <p style="margin: 16px 0 24px;">Tell me what you are trying to build or fix. I will reply with the next practical step: audit, sprint, repo rescue, retainer, or no-fit.</p>
           <a class="btn btn-secondary" href="https://cal.com/congcong-fan-pcwpkd/ai-build-sprint-intro">Book an intro call</a>
