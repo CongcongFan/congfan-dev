@@ -7,7 +7,6 @@ Static Cloudflare Pages site for Cong Fan, plus a small Cloudflare Worker for pr
 - GitHub repo: <https://github.com/CongcongFan/congfan-dev>
 - Cloudflare Pages project: `congfan-dev`
 - Pages URL: <https://congfan-dev.pages.dev>
-- Latest deployment: <https://2e9acae4.congfan-dev.pages.dev>
 - Custom domains added in Pages:
   - `congfan.dev` active, SSL enabled
   - `www.congfan.dev` active, SSL enabled
