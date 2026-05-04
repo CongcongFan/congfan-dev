@@ -119,6 +119,7 @@
       line-height: 1.6;
       text-rendering: optimizeLegibility;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
     img, svg { display: block; max-width: 100%; }
     figure { margin: 0; }
@@ -154,14 +155,14 @@
       font-family: var(--font-display);
       font-size: var(--fs-h1);
       line-height: 1.03;
-      letter-spacing: -0.02em;
+      letter-spacing: 0;
       margin: 0;
     }
     .h2, h2 {
       font-family: var(--font-display);
       font-size: var(--fs-h2);
       line-height: 1.1;
-      letter-spacing: -0.02em;
+      letter-spacing: 0;
       margin: 0;
     }
     .h3, h3 {
@@ -415,6 +416,9 @@
     .hero-proof .meta {
       color: var(--fg);
     }
+    .hero-proof p {
+      overflow-wrap: anywhere;
+    }
     .hero-note {
       position: absolute;
       left: 20px;
@@ -573,6 +577,10 @@
     .note-item h3 {
       font-size: 20px;
       margin-bottom: 8px;
+    }
+    .note-item .note-meta {
+      margin: 0 0 8px;
+      color: var(--accent);
     }
     .note-item p {
       margin: 0;
@@ -784,14 +792,17 @@
     @media (max-width: 640px) {
       :root {
         --gutter: 16px;
-        --fs-h1: 40px;
+        --fs-h1: 38px;
         --fs-h2: 32px;
         --fs-lead: 18px;
       }
       .section { padding-block: 48px; }
       .topnav .btn { display: none; }
       .hero { padding-block: 56px; }
-      h1 { overflow-wrap: break-word; }
+      h1 {
+        overflow-wrap: anywhere;
+        letter-spacing: 0;
+      }
       .container,
       .lead {
         max-width: 100%;
@@ -800,8 +811,18 @@
       .hero .lead,
       .hero-visual,
       .hero-cta {
-        width: calc(100% - var(--gutter));
-        max-width: calc(100% - var(--gutter));
+        width: 100%;
+        max-width: 100%;
+      }
+      .hero h1 {
+        width: auto;
+        max-width: 11.5ch;
+        text-wrap: wrap;
+      }
+      .hero .lead {
+        width: auto;
+        max-width: 32ch;
+        text-wrap: wrap;
       }
       .hero-visual,
       .hero-visual img { min-height: 340px; }
@@ -876,8 +897,8 @@
               <p>中文也可以。</p>
             </div>
             <div class="note-item">
-              <p class="meta">Limited capacity</p>
-              <p>1 build sprint and 2 audits per month.</p>
+              <p class="meta">Shipped systems</p>
+              <p>ReelRush, Supabase, Stripe, n8n, and repo debugging work.</p>
             </div>
           </div>
           <div class="contact-line" aria-label="Contact links">
@@ -992,18 +1013,22 @@
         </aside>
         <div class="notes-list">
           <article class="note-item">
+            <p class="meta note-meta">May 4, 2026 · Agentic coding</p>
             <h3><a class="inline-link" href="/field-notes/agentic-coding-loop">How I use Codex and Claude Code to ship working prototypes</a></h3>
             <p>A practical loop for founder builds: brief, inspect, constrain, delegate, verify, and leave behind something usable.</p>
           </article>
           <article class="note-item">
+            <p class="meta note-meta">May 4, 2026 · AI workflow</p>
             <h3><a class="inline-link" href="/field-notes/ai-workflow-fit-check">What I look for before taking on an AI workflow</a></h3>
             <p>The owner, user, repeated action, existing toolchain, failure mode, and definition of done matter more than the model name.</p>
           </article>
           <article class="note-item">
+            <p class="meta note-meta">May 4, 2026 · Repo debugging</p>
             <h3><a class="inline-link" href="/field-notes/repo-problem-product-problem">When a repo problem is really a product problem</a></h3>
             <p>Runtime bugs often expose unclear scope, pricing truth, missing evidence, or a workflow that was never made inspectable.</p>
           </article>
           <article class="note-item">
+            <p class="meta note-meta">May 4, 2026 · Product scope</p>
             <h3><a class="inline-link" href="/field-notes/keep-ai-builds-small">Why I keep AI builds small</a></h3>
             <p>A narrow surface is easier to inspect, ship, and learn from. Most useful AI systems start as one reliable loop.</p>
           </article>
