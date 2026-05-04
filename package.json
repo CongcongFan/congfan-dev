@@ -1,0 +1,18 @@
+{
+  "name": "congfan-dev-pages",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static portfolio and AI product operator landing page for congfan.dev.",
+  "scripts": {
+    "build": "node ./scripts/build.mjs",
+    "lint": "node ./scripts/lint.mjs",
+    "test": "node ./scripts/test.mjs",
+    "deploy": "wrangler pages deploy dist --project-name=congfan-dev"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
