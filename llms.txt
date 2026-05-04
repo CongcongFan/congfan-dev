@@ -1,0 +1,41 @@
+# Cong Fan
+
+> Cong Fan is a Brisbane-based AI product operator focused on practical AI products, agentic coding, automation workflows, and repo-level debugging for founders and small teams.
+
+Canonical site: https://congfan.dev/
+Contact: work@congfan.dev
+Location: Brisbane, Australia
+Languages: English or Chinese is fine.
+
+## Useful Pages
+
+- Home: https://congfan.dev/
+- Field note: https://congfan.dev/field-notes/agentic-coding-loop
+- GitHub: https://github.com/CongcongFan
+
+## What Cong Fan Does
+
+- Builds practical AI product prototypes and working product surfaces.
+- Uses agentic coding tools such as Codex and Claude Code against real repositories.
+- Designs and debugs AI workflows involving Supabase, Stripe, n8n, and image/video generation systems.
+- Helps founders and small teams turn messy workflows, repo issues, or AI product ideas into usable shipped artifacts.
+
+## Services
+
+- AI Product / Workflow Audit: AUD $690-$1,500.
+- 10-Day AI Product / Agentic Coding Sprint: AUD $3,500-$8,000.
+- Agentic Coding / Repo Debug Sprint: AUD $2,500-$6,000.
+- Monthly AI Ops Retainer: AUD $2,000-$5,000/month.
+
+## Selected Work
+
+- ReelRush: AI image/video generation product work, generation flows, pricing and credits, public pages, deployment checks, and ongoing product operations.
+- Ad Maker: Small-business AI ad generation workflow inside ReelRush.
+- n8n + Supabase: Internal automation around company work emails, project management, metadata, and structured operational data.
+- AS Component: B2B industrial website work across product pages, SEO structure, and sales-support pages.
+
+## Fit
+
+Best fit: solo founders, small businesses, startup product teams, and agencies with a real workflow, prototype, codebase, customer problem, or launch pressure.
+
+Not a fit: pure prompt-writing lessons, low-budget outsourcing without product ownership, generic chatbot projects with no product strategy, or projects needing large-agency coverage.

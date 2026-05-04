@@ -15,3 +15,6 @@
 
 /field-notes/*
   Cache-Control: public, max-age=3600
+
+/llms.txt
+  Cache-Control: public, max-age=3600

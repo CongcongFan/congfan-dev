@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cong Fan · AI Product Work and Field Notes</title>
   <meta name="description" content="Personal site of Cong Fan, a Brisbane-based AI product operator writing about agentic coding, practical AI workflows, and shipped product work." />
+  <meta name="author" content="Cong Fan" />
   <link rel="canonical" href="https://congfan.dev/" />
+  <link rel="author" href="https://congfan.dev/" />
+  <link rel="alternate" type="text/plain" href="https://congfan.dev/llms.txt" title="LLMs site summary" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Cong Fan" />
   <meta property="og:title" content="Cong Fan · AI Product Work and Field Notes" />
@@ -19,13 +22,55 @@
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Cong Fan",
-      "url": "https://congfan.dev/",
-      "email": "work@congfan.dev",
-      "areaServed": ["Brisbane", "Australia", "Remote"],
-      "description": "Personal site of Cong Fan, a Brisbane-based AI product operator writing about agentic coding, practical AI workflows, and shipped product work.",
-      "sameAs": ["https://github.com/CongcongFan", "https://reelrush.com.au", "https://ascomponent.com.au", "https://ozcosystems.com.au"]
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://congfan.dev/#person",
+          "name": "Cong Fan",
+          "url": "https://congfan.dev/",
+          "image": "https://congfan.dev/cong-fan-headshot.jpg",
+          "email": "work@congfan.dev",
+          "jobTitle": "AI Product Operator",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Brisbane",
+            "addressCountry": "AU"
+          },
+          "knowsAbout": [
+            "Agentic coding",
+            "AI product prototyping",
+            "AI workflow automation",
+            "Supabase architecture",
+            "Stripe billing",
+            "n8n automation",
+            "AI image and video generation workflows"
+          ],
+          "sameAs": [
+            "https://github.com/CongcongFan",
+            "https://reelrush.com.au",
+            "https://ascomponent.com.au",
+            "https://ozcosystems.com.au"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://congfan.dev/#website",
+          "name": "Cong Fan",
+          "url": "https://congfan.dev/",
+          "description": "Personal site of Cong Fan: field notes, selected work, and practical AI product implementation from Brisbane.",
+          "publisher": { "@id": "https://congfan.dev/#person" }
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://congfan.dev/#service",
+          "name": "Cong Fan AI Product Work",
+          "url": "https://congfan.dev/",
+          "email": "work@congfan.dev",
+          "areaServed": ["Brisbane", "Australia", "Remote"],
+          "description": "Focused AI product implementation, workflow audits, agentic coding sprints, and repo debugging for founders and small teams.",
+          "founder": { "@id": "https://congfan.dev/#person" }
+        }
+      ]
     }
   </script>
   <style>
@@ -81,17 +126,6 @@
     button { font: inherit; cursor: pointer; }
     p { text-wrap: pretty; }
     h1, h2, h3, h4 { text-wrap: balance; }
-    main { display: flex; flex-direction: column; }
-    #top { order: 1; }
-    #who { order: 2; }
-    #work { order: 3; }
-    #field-notes { order: 4; }
-    #operator-notes { order: 5; }
-    #capabilities { order: 6; }
-    #process { order: 7; }
-    #fit { order: 8; }
-    #offers { order: 9; }
-    #brief { order: 10; }
 
     .container {
       max-width: var(--container);
@@ -904,6 +938,118 @@
       </div>
     </section>
 
+    <section class="section" id="work" data-od-id="case-studies">
+      <div class="container stack" style="gap: 40px;">
+        <div class="grid-2-1">
+          <div>
+            <p class="eyebrow">Selected work</p>
+            <h2>Projects and Work Surfaces I Can Point To.</h2>
+          </div>
+          <p class="lead">I avoid invented growth metrics. The proof here is more practical: shipped pages, working workflows, deployed systems, repo improvements, and public project surfaces you can open.</p>
+        </div>
+        <div class="case-grid">
+          <article class="card case-card">
+            <div>
+              <span class="tag">AI video / image product</span>
+              <h3>ReelRush</h3>
+            </div>
+            <p>My product build surface for AI image/video generation. Work includes generation flows, pricing and credits, public pages, deployment checks, and ongoing product operations.</p>
+            <a href="https://reelrush.com.au">reelrush.com.au</a>
+          </article>
+          <article class="card case-card">
+            <div>
+              <span class="tag">Small business AI workflow</span>
+              <h3>Ad Maker</h3>
+            </div>
+            <p>A small-business ad generation workflow inside ReelRush. The goal is practical output creation, not a generic chatbot or prompt demo.</p>
+            <a href="https://reelrush.com.au">reelrush.com.au</a>
+          </article>
+          <article class="card case-card">
+            <div>
+              <span class="tag">Automation / metadata</span>
+              <h3>n8n + Supabase</h3>
+            </div>
+            <p>Internal automation around company work emails, project management, metadata, and structured operational data. Built to reduce repeated manual coordination.</p>
+            <span class="meta">Internal workflow</span>
+          </article>
+          <article class="card case-card">
+            <div>
+              <span class="tag">B2B website / SEO</span>
+              <h3>AS Component</h3>
+            </div>
+            <p>B2B industrial website work across product pages, SEO structure, and sales-support pages for a more discoverable product catalog.</p>
+            <a href="https://ascomponent.com.au">ascomponent.com.au</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="field-notes" data-od-id="field-notes">
+      <div class="container grid-1-2">
+        <aside class="work-note">
+          <p class="meta">Field notes</p>
+          <p style="margin-top: 16px;">Short notes from real builds: how I use AI agents, product constraints, repo truth, and runtime verification.</p>
+        </aside>
+        <div class="notes-list">
+          <article class="note-item">
+            <h3><a class="inline-link" href="/field-notes/agentic-coding-loop">How I use Codex and Claude Code to ship working prototypes</a></h3>
+            <p>A practical loop for founder builds: brief, inspect, constrain, delegate, verify, and leave behind something usable.</p>
+          </article>
+          <article class="note-item">
+            <h3>What I look for before taking on an AI workflow</h3>
+            <p>The owner, user, repeated action, existing toolchain, failure mode, and definition of done matter more than the model name.</p>
+          </article>
+          <article class="note-item">
+            <h3>When a repo problem is really a product problem</h3>
+            <p>Runtime bugs often expose unclear scope, pricing truth, missing evidence, or a workflow that was never made inspectable.</p>
+          </article>
+          <article class="note-item">
+            <h3>Why I keep AI builds small</h3>
+            <p>A narrow surface is easier to inspect, ship, and learn from. Most useful AI systems start as one reliable loop.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="operator-notes" data-od-id="operator-notes">
+      <div class="container grid-1-2">
+        <aside class="work-note">
+          <p class="meta">Working style</p>
+          <p style="margin-top: 16px;">I bias toward proof over performance. The useful output is something you can inspect, run, test, hand off, or deploy.</p>
+          <figure class="operator-profile">
+            <img src="hero-operator.png" alt="Abstract workspace for AI product and agentic coding work" loading="lazy" />
+            <figcaption class="meta">The workflow is usually part product review, part repo inspection, part runtime verification.</figcaption>
+          </figure>
+        </aside>
+        <div class="notes-list">
+          <article class="note-item">
+            <h3>Product before tools</h3>
+            <p>Name the user, workflow, business outcome, and definition of done before choosing the AI stack.</p>
+          </article>
+          <article class="note-item">
+            <h3>Evidence-first debugging</h3>
+            <p>Start from exact errors, logs, screenshots, rows, browser state, and deployed behavior before proposing fixes.</p>
+          </article>
+          <article class="note-item">
+            <h3>Repo and runtime verification</h3>
+            <p>Inspect the actual codebase, live route, function, database, or local process instead of trusting assumptions.</p>
+          </article>
+          <article class="note-item">
+            <h3>Narrow scoped delivery</h3>
+            <p>Keep the build small enough to review and ship: one surface, workflow, integration, or agent lane at a time.</p>
+          </article>
+          <article class="note-item">
+            <h3>Documentation and handoff</h3>
+            <p>Leave behind working files, verification notes, known limits, setup details, and next actions.</p>
+          </article>
+          <article class="note-item">
+            <h3>Limited capacity</h3>
+            <p>Currently taking 1 build sprint and 2 audits per month so each engagement has enough attention.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="capabilities" data-od-id="capabilities">
       <div class="container stack" style="gap: 40px;">
         <div class="grid-2-1">
@@ -982,52 +1128,6 @@
       </div>
     </section>
 
-    <section class="section" id="work" data-od-id="case-studies">
-      <div class="container stack" style="gap: 40px;">
-        <div class="grid-2-1">
-          <div>
-            <p class="eyebrow">Selected work</p>
-            <h2>Projects and Work Surfaces I Can Point To.</h2>
-          </div>
-          <p class="lead">I avoid invented growth metrics. The proof here is more practical: shipped pages, working workflows, deployed systems, repo improvements, and public project surfaces you can open.</p>
-        </div>
-        <div class="case-grid">
-          <article class="card case-card">
-            <div>
-              <span class="tag">AI video / image product</span>
-              <h3>ReelRush</h3>
-            </div>
-            <p>My product build surface for AI image/video generation. Work includes generation flows, pricing and credits, public pages, deployment checks, and ongoing product operations.</p>
-            <a href="https://reelrush.com.au">reelrush.com.au</a>
-          </article>
-          <article class="card case-card">
-            <div>
-              <span class="tag">Small business AI workflow</span>
-              <h3>Ad Maker</h3>
-            </div>
-            <p>A small-business ad generation workflow inside ReelRush. The goal is practical output creation, not a generic chatbot or prompt demo.</p>
-            <a href="https://reelrush.com.au">reelrush.com.au</a>
-          </article>
-          <article class="card case-card">
-            <div>
-              <span class="tag">Automation / metadata</span>
-              <h3>n8n + Supabase</h3>
-            </div>
-            <p>Internal automation around company work emails, project management, metadata, and structured operational data. Built to reduce repeated manual coordination.</p>
-            <span class="meta">Internal workflow</span>
-          </article>
-          <article class="card case-card">
-            <div>
-              <span class="tag">B2B website / SEO</span>
-              <h3>AS Component</h3>
-            </div>
-            <p>B2B industrial website work across product pages, SEO structure, and sales-support pages for a more discoverable product catalog.</p>
-            <a href="https://ascomponent.com.au">ascomponent.com.au</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <section class="section" id="process" data-od-id="process-motion">
       <div class="container grid-1-2">
         <aside class="work-note">
@@ -1073,72 +1173,6 @@
           <div class="chinese-note">
             <p>中文也可以。你可以直接用中文说明你想做什么、现在卡在哪里、已有代码/流程是什么、预算和时间线大概是多少。</p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="operator-notes" data-od-id="operator-notes">
-      <div class="container grid-1-2">
-        <aside class="work-note">
-          <p class="meta">Working style</p>
-          <p style="margin-top: 16px;">I bias toward proof over performance. The useful output is something you can inspect, run, test, hand off, or deploy.</p>
-          <figure class="operator-profile">
-            <img src="hero-operator.png" alt="Abstract workspace for AI product and agentic coding work" loading="lazy" />
-            <figcaption class="meta">The workflow is usually part product review, part repo inspection, part runtime verification.</figcaption>
-          </figure>
-        </aside>
-        <div class="notes-list">
-          <article class="note-item">
-            <h3>Product before tools</h3>
-            <p>Name the user, workflow, business outcome, and definition of done before choosing the AI stack.</p>
-          </article>
-          <article class="note-item">
-            <h3>Evidence-first debugging</h3>
-            <p>Start from exact errors, logs, screenshots, rows, browser state, and deployed behavior before proposing fixes.</p>
-          </article>
-          <article class="note-item">
-            <h3>Repo and runtime verification</h3>
-            <p>Inspect the actual codebase, live route, function, database, or local process instead of trusting assumptions.</p>
-          </article>
-          <article class="note-item">
-            <h3>Narrow scoped delivery</h3>
-            <p>Keep the build small enough to review and ship: one surface, workflow, integration, or agent lane at a time.</p>
-          </article>
-          <article class="note-item">
-            <h3>Documentation and handoff</h3>
-            <p>Leave behind working files, verification notes, known limits, setup details, and next actions.</p>
-          </article>
-          <article class="note-item">
-            <h3>Limited capacity</h3>
-            <p>Currently taking 1 build sprint and 2 audits per month so each engagement has enough attention.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="field-notes" data-od-id="field-notes">
-      <div class="container grid-1-2">
-        <aside class="work-note">
-          <p class="meta">Field notes</p>
-          <p style="margin-top: 16px;">Short notes from real builds: how I use AI agents, product constraints, repo truth, and runtime verification.</p>
-        </aside>
-        <div class="notes-list">
-          <article class="note-item">
-            <h3><a class="inline-link" href="/field-notes/agentic-coding-loop">How I use Codex and Claude Code to ship working prototypes</a></h3>
-            <p>A practical loop for founder builds: brief, inspect, constrain, delegate, verify, and leave behind something usable.</p>
-          </article>
-          <article class="note-item">
-            <h3>What I look for before taking on an AI workflow</h3>
-            <p>The owner, user, repeated action, existing toolchain, failure mode, and definition of done matter more than the model name.</p>
-          </article>
-          <article class="note-item">
-            <h3>When a repo problem is really a product problem</h3>
-            <p>Runtime bugs often expose unclear scope, pricing truth, missing evidence, or a workflow that was never made inspectable.</p>
-          </article>
-          <article class="note-item">
-            <h3>Why I keep AI builds small</h3>
-            <p>A narrow surface is easier to inspect, ship, and learn from. Most useful AI systems start as one reliable loop.</p>
-          </article>
         </div>
       </div>
     </section>

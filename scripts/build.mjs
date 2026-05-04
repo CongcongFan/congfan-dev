@@ -10,6 +10,7 @@ for (const file of [
   "agentic-workflow-loop.mp4",
   "robots.txt",
   "sitemap.xml",
+  "llms.txt",
   "_headers",
 ]) {
   await cp(file, `dist/${file}`);
