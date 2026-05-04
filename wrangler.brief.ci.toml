@@ -1,0 +1,6 @@
+name = "congfan-brief"
+main = "worker/brief.js"
+compatibility_date = "2026-05-04"
+
+[[send_email]]
+name = "BRIEF_EMAIL"

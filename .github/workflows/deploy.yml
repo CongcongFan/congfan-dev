@@ -41,7 +41,7 @@ jobs:
           fi
 
           npx wrangler pages deploy dist --project-name=congfan-dev --branch=main --commit-hash="$GITHUB_SHA" --commit-message="$GITHUB_REF_NAME"
-          npx wrangler deploy --config wrangler.brief.toml
+          npx wrangler deploy --config wrangler.brief.ci.toml
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
