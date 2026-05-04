@@ -9,8 +9,11 @@ Static Cloudflare Pages site for Cong Fan.
 - Pages URL: <https://congfan-dev.pages.dev>
 - Latest deployment: <https://2e9acae4.congfan-dev.pages.dev>
 - Custom domains added in Pages:
-  - `congfan.dev`
-  - `www.congfan.dev`
+  - `congfan.dev` active, SSL enabled
+  - `www.congfan.dev` active, SSL enabled
+- Redirect Rule:
+  - `https://www.congfan.dev/*` -> `https://congfan.dev/${1}` with 301
+  - query string preserved
 
 ## Cloudflare Pages settings
 
@@ -54,7 +57,7 @@ Add both custom domains in Cloudflare Pages:
 
 The canonical URL is `https://congfan.dev/`.
 
-Cloudflare Pages `_redirects` does not handle domain-level redirects. Configure `www.congfan.dev` to redirect to `https://congfan.dev` with Cloudflare Bulk Redirects or a zone Redirect Rule after both custom domains are active.
+Cloudflare Pages `_redirects` does not handle domain-level redirects. The live zone uses a Redirect Rule to send `www.congfan.dev` to `https://congfan.dev`.
 
 If DNS records are not created automatically, add:
 
