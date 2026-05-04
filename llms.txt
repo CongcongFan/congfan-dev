@@ -11,6 +11,9 @@ Languages: English or Chinese is fine.
 
 - Home: https://congfan.dev/
 - Field note: https://congfan.dev/field-notes/agentic-coding-loop
+- Field note: https://congfan.dev/field-notes/ai-workflow-fit-check
+- Field note: https://congfan.dev/field-notes/repo-problem-product-problem
+- Field note: https://congfan.dev/field-notes/keep-ai-builds-small
 - GitHub: https://github.com/CongcongFan
 
 ## What Cong Fan Does

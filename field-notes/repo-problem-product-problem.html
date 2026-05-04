@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>When a repo problem is really a product problem · Cong Fan</title>
+  <meta name="description" content="A field note on tracing repo failures back to unclear product promises, pricing truth, workflow state, and acceptance criteria." />
+  <meta name="author" content="Cong Fan" />
+  <link rel="canonical" href="https://congfan.dev/field-notes/repo-problem-product-problem" />
+  <link rel="author" href="https://congfan.dev/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Cong Fan" />
+  <meta property="og:title" content="When a repo problem is really a product problem" />
+  <meta property="og:description" content="Runtime bugs often expose unclear scope, pricing truth, missing evidence, or a workflow that was never made inspectable." />
+  <meta property="og:url" content="https://congfan.dev/field-notes/repo-problem-product-problem" />
+  <meta property="og:image" content="https://congfan.dev/hero-operator.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="When a repo problem is really a product problem" />
+  <meta name="twitter:description" content="A practical note on debugging repo failures through product contracts, runtime evidence, and shipped behavior." />
+  <meta name="twitter:image" content="https://congfan.dev/hero-operator.png" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "When a repo problem is really a product problem",
+      "description": "A field note on tracing repo failures back to unclear product promises, pricing truth, workflow state, and acceptance criteria.",
+      "url": "https://congfan.dev/field-notes/repo-problem-product-problem",
+      "mainEntityOfPage": "https://congfan.dev/field-notes/repo-problem-product-problem",
+      "image": "https://congfan.dev/hero-operator.png",
+      "datePublished": "2026-05-04",
+      "dateModified": "2026-05-04",
+      "author": {
+        "@type": "Person",
+        "@id": "https://congfan.dev/#person",
+        "name": "Cong Fan",
+        "url": "https://congfan.dev/",
+        "image": "https://congfan.dev/cong-fan-headshot.jpg",
+        "jobTitle": "AI Product Operator"
+      },
+      "publisher": {
+        "@type": "Person",
+        "@id": "https://congfan.dev/#person",
+        "name": "Cong Fan"
+      },
+      "keywords": ["repo debugging", "product management", "runtime verification", "billing", "AI product", "agentic coding"]
+    }
+  </script>
+  <style>
+    :root { --bg:#FAF7F2; --surface:#FFFFFF; --fg:#1C1A17; --muted:#8A817A; --border:color-mix(in oklch,#2F5B4F 8%,transparent); --accent:#C0512F; --font-display:'GT Sectra','Times New Roman',serif; --font-body:'Söhne',-apple-system,system-ui,sans-serif; --font-mono:'JetBrains Mono',ui-monospace,monospace; --gutter:24px; --container:880px; --wide:1160px; --radius:14px; }
+    *,*::before,*::after{box-sizing:border-box} html{-webkit-text-size-adjust:100%} body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);line-height:1.7;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility} a{color:inherit;text-decoration:none} img{display:block;max-width:100%}.container{max-width:var(--container);margin-inline:auto;padding-inline:var(--gutter)}.wide{max-width:var(--wide);margin-inline:auto;padding-inline:var(--gutter)}.topnav{border-bottom:1px solid var(--border);background:color-mix(in oklch,var(--bg) 92%,transparent);backdrop-filter:blur(12px);position:sticky;top:0;z-index:10}.topnav-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:14px}.logo{font-family:var(--font-display);font-size:20px}.topnav a:not(.logo){color:var(--muted);font-size:14px;border-bottom:1px solid transparent}.topnav a:hover{color:var(--fg);border-bottom-color:var(--border)}.article-hero{padding-block:clamp(64px,9vw,112px)}.eyebrow{margin:0 0 18px;color:var(--accent);font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}h1{margin:0;max-width:13ch;font-family:var(--font-display);font-size:clamp(44px,7vw,78px);line-height:1.04;letter-spacing:-.02em;text-wrap:balance}.dek{margin:24px 0 0;max-width:62ch;color:var(--muted);font-size:20px;line-height:1.55}.meta{font-family:var(--font-mono);font-size:13px;color:var(--muted)}.hero-media{margin-top:42px;overflow:hidden;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface)}.hero-media img{width:100%;aspect-ratio:16/7;object-fit:cover}article{padding-bottom:88px}article h2{margin:56px 0 14px;font-family:var(--font-display);font-size:clamp(30px,4vw,44px);line-height:1.14;letter-spacing:-.02em;text-wrap:balance}article p{margin:18px 0 0;color:color-mix(in oklch,var(--fg) 82%,var(--muted));font-size:18px;text-wrap:pretty}article ul{margin:20px 0 0;padding:0;list-style:none;display:grid;gap:12px}article li{padding-top:12px;border-top:1px solid var(--border);color:color-mix(in oklch,var(--fg) 82%,var(--muted));font-size:17px}.callout{margin-top:46px;padding:26px;border:1px solid var(--fg);border-radius:var(--radius);background:color-mix(in oklch,var(--surface) 72%,transparent)}.callout p{margin:0;color:var(--fg);font-size:19px}.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:13px 18px;border-radius:12px;border:1px solid var(--fg);font-size:15px;font-weight:500}.btn-primary{background:var(--accent);border-color:var(--accent);color:var(--bg)}.pagefoot{padding-block:44px;border-top:1px solid var(--border);color:var(--muted);font-size:13px}@media(max-width:640px){:root{--gutter:16px}.topnav-inner{align-items:flex-start;flex-direction:column}.hero-media img{aspect-ratio:4/3}.cta-row,.btn{width:100%}}
+  </style>
+</head>
+<body>
+  <header class="topnav">
+    <div class="wide topnav-inner">
+      <a class="logo" href="/">Cong Fan</a>
+      <nav aria-label="Article navigation"><a href="/#field-notes">Field notes</a> <a href="/#brief">Send brief</a></nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="article-hero">
+      <div class="wide">
+        <p class="eyebrow">Field note · Repo debugging</p>
+        <h1>When a repo problem is really a product problem.</h1>
+        <p class="dek">Some bugs are not just bugs. They expose an unclear promise, a missing state, stale pricing truth, weak failure copy, or a workflow that was never made inspectable.</p>
+        <p class="meta" style="margin-top:22px;">Cong Fan · Brisbane · Updated May 4, 2026</p>
+        <figure class="hero-media"><img src="/hero-operator.png" alt="Abstract AI product operator workspace" /></figure>
+      </div>
+    </section>
+
+    <article class="container">
+      <p>I like repo debugging because it forces honesty. A failing route, broken checkout return, bad generation state, or confusing UI message usually points to something more concrete than a vague product debate.</p>
+      <p>But I do not treat every failure as only a code issue. The code is often doing exactly what the product contract allowed it to do. The real problem is that the contract was incomplete.</p>
+
+      <h2>Start from the visible failure</h2>
+      <p>I begin with what the user can actually see: the page, button, status, error, billing result, generated output, email, or missing record. Then I trace backward through the repo, logs, database, environment, deployment, and third-party configuration.</p>
+      <ul>
+        <li><strong>Copy.</strong> What did the page promise the user would happen?</li>
+        <li><strong>State.</strong> What does the system believe happened?</li>
+        <li><strong>Persistence.</strong> Is the truth in the database, local state, webhook, job record, or nowhere?</li>
+        <li><strong>Runtime.</strong> Does production behave like the repo says it should?</li>
+        <li><strong>Evidence.</strong> Can someone else inspect the proof without trusting my explanation?</li>
+      </ul>
+
+      <h2>Product decisions hidden as code</h2>
+      <p>Many repo failures are product decisions wearing a stack trace. Pricing bugs reveal unclear credit rules. Auth bugs reveal unclear ownership. Generation bugs reveal missing retry behavior. Empty states reveal that no one decided what the user should do next.</p>
+      <p>Fixing only the line of code can make the symptom disappear while the product remains vague. A better fix names the product rule, implements it, and leaves behind a way to verify it again.</p>
+
+      <h2>What repo rescue should leave behind</h2>
+      <p>A good debugging sprint should not end with "try it now". It should leave a narrower system: updated code, explicit behavior, passing checks, screenshots or command output, and a note on what is still unknown.</p>
+      <p>The best outcome is boring. The route works. The status copy is true. The billing path has evidence. The workflow can be repeated. The next person can understand why the fix is correct.</p>
+
+      <div class="callout">
+        <p>If a repo problem keeps coming back, I would rather inspect the product promise than keep patching symptoms.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="/#brief">Send a project brief</a>
+          <a class="btn" href="/#field-notes">Back to field notes</a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="pagefoot"><div class="wide">Cong Fan · AI product operator · <a href="mailto:work@congfan.dev">work@congfan.dev</a></div></footer>
+</body>
+</html>

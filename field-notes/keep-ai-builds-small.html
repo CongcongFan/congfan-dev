@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Why I keep AI builds small · Cong Fan</title>
+  <meta name="description" content="A field note on why useful AI product work usually starts with one reliable loop, one surface, and one verifiable outcome." />
+  <meta name="author" content="Cong Fan" />
+  <link rel="canonical" href="https://congfan.dev/field-notes/keep-ai-builds-small" />
+  <link rel="author" href="https://congfan.dev/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Cong Fan" />
+  <meta property="og:title" content="Why I keep AI builds small" />
+  <meta property="og:description" content="A narrow surface is easier to inspect, ship, and learn from. Most useful AI systems start as one reliable loop." />
+  <meta property="og:url" content="https://congfan.dev/field-notes/keep-ai-builds-small" />
+  <meta property="og:image" content="https://congfan.dev/hero-operator.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Why I keep AI builds small" />
+  <meta name="twitter:description" content="Useful AI product work starts with one reliable loop, one surface, and one verifiable outcome." />
+  <meta name="twitter:image" content="https://congfan.dev/hero-operator.png" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Why I keep AI builds small",
+      "description": "A field note on why useful AI product work usually starts with one reliable loop, one surface, and one verifiable outcome.",
+      "url": "https://congfan.dev/field-notes/keep-ai-builds-small",
+      "mainEntityOfPage": "https://congfan.dev/field-notes/keep-ai-builds-small",
+      "image": "https://congfan.dev/hero-operator.png",
+      "datePublished": "2026-05-04",
+      "dateModified": "2026-05-04",
+      "author": {
+        "@type": "Person",
+        "@id": "https://congfan.dev/#person",
+        "name": "Cong Fan",
+        "url": "https://congfan.dev/",
+        "image": "https://congfan.dev/cong-fan-headshot.jpg",
+        "jobTitle": "AI Product Operator"
+      },
+      "publisher": {
+        "@type": "Person",
+        "@id": "https://congfan.dev/#person",
+        "name": "Cong Fan"
+      },
+      "keywords": ["AI product", "prototype", "MVP", "runtime verification", "agentic coding", "workflow automation"]
+    }
+  </script>
+  <style>
+    :root { --bg:#FAF7F2; --surface:#FFFFFF; --fg:#1C1A17; --muted:#8A817A; --border:color-mix(in oklch,#2F5B4F 8%,transparent); --accent:#C0512F; --font-display:'GT Sectra','Times New Roman',serif; --font-body:'Söhne',-apple-system,system-ui,sans-serif; --font-mono:'JetBrains Mono',ui-monospace,monospace; --gutter:24px; --container:880px; --wide:1160px; --radius:14px; }
+    *,*::before,*::after{box-sizing:border-box} html{-webkit-text-size-adjust:100%} body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);line-height:1.7;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility} a{color:inherit;text-decoration:none} img{display:block;max-width:100%}.container{max-width:var(--container);margin-inline:auto;padding-inline:var(--gutter)}.wide{max-width:var(--wide);margin-inline:auto;padding-inline:var(--gutter)}.topnav{border-bottom:1px solid var(--border);background:color-mix(in oklch,var(--bg) 92%,transparent);backdrop-filter:blur(12px);position:sticky;top:0;z-index:10}.topnav-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:14px}.logo{font-family:var(--font-display);font-size:20px}.topnav a:not(.logo){color:var(--muted);font-size:14px;border-bottom:1px solid transparent}.topnav a:hover{color:var(--fg);border-bottom-color:var(--border)}.article-hero{padding-block:clamp(64px,9vw,112px)}.eyebrow{margin:0 0 18px;color:var(--accent);font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}h1{margin:0;max-width:12ch;font-family:var(--font-display);font-size:clamp(44px,7vw,78px);line-height:1.04;letter-spacing:-.02em;text-wrap:balance}.dek{margin:24px 0 0;max-width:62ch;color:var(--muted);font-size:20px;line-height:1.55}.meta{font-family:var(--font-mono);font-size:13px;color:var(--muted)}.hero-media{margin-top:42px;overflow:hidden;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface)}.hero-media img{width:100%;aspect-ratio:16/7;object-fit:cover}article{padding-bottom:88px}article h2{margin:56px 0 14px;font-family:var(--font-display);font-size:clamp(30px,4vw,44px);line-height:1.14;letter-spacing:-.02em;text-wrap:balance}article p{margin:18px 0 0;color:color-mix(in oklch,var(--fg) 82%,var(--muted));font-size:18px;text-wrap:pretty}article ul{margin:20px 0 0;padding:0;list-style:none;display:grid;gap:12px}article li{padding-top:12px;border-top:1px solid var(--border);color:color-mix(in oklch,var(--fg) 82%,var(--muted));font-size:17px}.callout{margin-top:46px;padding:26px;border:1px solid var(--fg);border-radius:var(--radius);background:color-mix(in oklch,var(--surface) 72%,transparent)}.callout p{margin:0;color:var(--fg);font-size:19px}.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:13px 18px;border-radius:12px;border:1px solid var(--fg);font-size:15px;font-weight:500}.btn-primary{background:var(--accent);border-color:var(--accent);color:var(--bg)}.pagefoot{padding-block:44px;border-top:1px solid var(--border);color:var(--muted);font-size:13px}@media(max-width:640px){:root{--gutter:16px}.topnav-inner{align-items:flex-start;flex-direction:column}.hero-media img{aspect-ratio:4/3}.cta-row,.btn{width:100%}}
+  </style>
+</head>
+<body>
+  <header class="topnav">
+    <div class="wide topnav-inner">
+      <a class="logo" href="/">Cong Fan</a>
+      <nav aria-label="Article navigation"><a href="/#field-notes">Field notes</a> <a href="/#brief">Send brief</a></nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="article-hero">
+      <div class="wide">
+        <p class="eyebrow">Field note · Product scope</p>
+        <h1>Why I keep AI builds small.</h1>
+        <p class="dek">AI projects become fragile when the first version tries to be a platform. I would rather ship one reliable loop, test it against real input, and expand only after the behavior is inspectable.</p>
+        <p class="meta" style="margin-top:22px;">Cong Fan · Brisbane · Updated May 4, 2026</p>
+        <figure class="hero-media"><img src="/hero-operator.png" alt="Abstract AI product operator workspace" /></figure>
+      </div>
+    </section>
+
+    <article class="container">
+      <p>Most useful AI systems start smaller than people expect. One page. One intake path. One model call. One approval queue. One billing edge case. One internal workflow. That is usually enough to find the truth.</p>
+      <p>The early goal is not to prove that AI is impressive. The goal is to prove that a specific workflow can become reliable enough for a real person to use.</p>
+
+      <h2>One surface beats a platform</h2>
+      <p>A broad AI platform hides weak assumptions. A narrow surface exposes them. If a generation flow fails, you can see the input, output, cost, status, retry behavior, and user expectation in one place.</p>
+      <p>That is why I prefer a small product surface over a large plan. A small build creates evidence. A large plan creates optionality, and optionality is often where momentum disappears.</p>
+
+      <h2>Small scope makes verification possible</h2>
+      <p>AI work needs more verification than normal software because the output is often variable. When the scope is small, I can test the browser, inspect rows, check logs, run the build, verify the form, review the generated output, and write down what still needs attention.</p>
+      <ul>
+        <li><strong>One workflow.</strong> The user can finish one meaningful task.</li>
+        <li><strong>One owner.</strong> Someone can say whether the output is useful.</li>
+        <li><strong>One evidence trail.</strong> The result can be inspected without trusting vibes.</li>
+        <li><strong>One next step.</strong> The team knows whether to improve, expand, pause, or kill the idea.</li>
+      </ul>
+
+      <h2>Small does not mean trivial</h2>
+      <p>A small AI build can still include real product work: auth, data modeling, prompt flow, model routing, UI states, pricing truth, error handling, handoff docs, and deployment. The constraint is not technical depth. The constraint is behavioral focus.</p>
+      <p>If one loop works, it becomes a base for the next loop. If it does not work, the team learns that quickly without carrying a half-built platform.</p>
+
+      <h2>When to expand</h2>
+      <p>I expand after the system has survived real inputs and produced useful evidence. More features should come after the first loop has a stable owner, a repeatable path, and a clear failure mode.</p>
+
+      <div class="callout">
+        <p>The best first AI build is small enough to ship, inspect, and learn from, but real enough to change what the team does next.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="/#brief">Send a project brief</a>
+          <a class="btn" href="/#field-notes">Back to field notes</a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="pagefoot"><div class="wide">Cong Fan · AI product operator · <a href="mailto:work@congfan.dev">work@congfan.dev</a></div></footer>
+</body>
+</html>
