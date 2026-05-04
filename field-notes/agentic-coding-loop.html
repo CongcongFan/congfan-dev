@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How I use Codex and Claude Code to ship working prototypes · Cong Fan</title>
+  <meta name="description" content="A practical field note on using AI coding agents to ship working prototypes, debug real repos, and verify runtime behavior." />
+  <link rel="canonical" href="https://congfan.dev/field-notes/agentic-coding-loop" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Cong Fan" />
+  <meta property="og:title" content="How I use Codex and Claude Code to ship working prototypes" />
+  <meta property="og:description" content="A practical field note on the agentic coding loop I use for founder builds: brief, inspect, constrain, delegate, verify, and hand off." />
+  <meta property="og:url" content="https://congfan.dev/field-notes/agentic-coding-loop" />
+  <meta property="og:image" content="https://congfan.dev/hero-operator.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How I use Codex and Claude Code to ship working prototypes" />
+  <meta name="twitter:description" content="A practical field note on using AI coding agents to ship prototypes and repo improvements." />
+  <meta name="twitter:image" content="https://congfan.dev/hero-operator.png" />
+  <style>
+    :root {
+      --bg: #FAF7F2;
+      --surface: #FFFFFF;
+      --fg: #1C1A17;
+      --muted: #8A817A;
+      --border: color-mix(in oklch, #2F5B4F 8%, transparent);
+      --accent: #C0512F;
+      --font-display: 'GT Sectra', 'Times New Roman', serif;
+      --font-body: 'Söhne', -apple-system, system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+      --gutter: 24px;
+      --container: 880px;
+      --wide: 1160px;
+      --radius: 14px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .container {
+      max-width: var(--container);
+      margin-inline: auto;
+      padding-inline: var(--gutter);
+    }
+    .wide {
+      max-width: var(--wide);
+      margin-inline: auto;
+      padding-inline: var(--gutter);
+    }
+    .topnav {
+      border-bottom: 1px solid var(--border);
+      background: color-mix(in oklch, var(--bg) 92%, transparent);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .topnav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding-block: 14px;
+    }
+    .logo {
+      font-family: var(--font-display);
+      font-size: 20px;
+    }
+    .topnav a:not(.logo) {
+      color: var(--muted);
+      font-size: 14px;
+      border-bottom: 1px solid transparent;
+    }
+    .topnav a:hover {
+      color: var(--fg);
+      border-bottom-color: var(--border);
+    }
+    .article-hero {
+      padding-block: clamp(64px, 9vw, 112px);
+    }
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      max-width: 12ch;
+      font-family: var(--font-display);
+      font-size: clamp(44px, 7vw, 78px);
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      text-wrap: balance;
+    }
+    .dek {
+      margin: 24px 0 0;
+      max-width: 62ch;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.55;
+    }
+    .meta {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .hero-media {
+      margin-top: 42px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+    .hero-media img {
+      width: 100%;
+      aspect-ratio: 16 / 7;
+      object-fit: cover;
+    }
+    article {
+      padding-bottom: 88px;
+    }
+    article h2 {
+      margin: 56px 0 14px;
+      font-family: var(--font-display);
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.14;
+      letter-spacing: -0.02em;
+      text-wrap: balance;
+    }
+    article p {
+      margin: 18px 0 0;
+      color: color-mix(in oklch, var(--fg) 82%, var(--muted));
+      font-size: 18px;
+      text-wrap: pretty;
+    }
+    article ul {
+      margin: 20px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+    article li {
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      color: color-mix(in oklch, var(--fg) 82%, var(--muted));
+      font-size: 17px;
+    }
+    .callout {
+      margin-top: 46px;
+      padding: 26px;
+      border: 1px solid var(--fg);
+      border-radius: var(--radius);
+      background: color-mix(in oklch, var(--surface) 72%, transparent);
+    }
+    .callout p {
+      margin: 0;
+      color: var(--fg);
+      font-size: 19px;
+    }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 13px 18px;
+      border-radius: 12px;
+      border: 1px solid var(--fg);
+      font-size: 15px;
+      font-weight: 500;
+    }
+    .btn-primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--bg);
+    }
+    .pagefoot {
+      padding-block: 44px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    @media (max-width: 640px) {
+      :root { --gutter: 16px; }
+      .topnav-inner { align-items: flex-start; flex-direction: column; }
+      .hero-media img { aspect-ratio: 4 / 3; }
+      .cta-row,
+      .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topnav">
+    <div class="wide topnav-inner">
+      <a class="logo" href="/">Cong Fan</a>
+      <nav aria-label="Article navigation">
+        <a href="/#brief">Send brief</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="article-hero">
+      <div class="wide">
+        <p class="eyebrow">Field note · Agentic coding</p>
+        <h1>How I use Codex and Claude Code to ship working prototypes.</h1>
+        <p class="dek">AI coding agents are useful when the work has a real product surface, a real repo, and a concrete definition of done. The advantage is not better prompts. It is tighter loops between product judgment, implementation, and verification.</p>
+        <p class="meta" style="margin-top: 22px;">Cong Fan · Brisbane · Updated May 4, 2026</p>
+        <figure class="hero-media">
+          <img src="/hero-operator.png" alt="Abstract AI product operator workspace" />
+        </figure>
+      </div>
+    </section>
+
+    <article class="container">
+      <p>I use Codex and Claude Code most effectively when the project is already grounded: a founder wants to validate one product workflow, a small team has a messy internal process, or a repo has a user-visible failure that needs to be traced through the stack.</p>
+
+      <p>The agent is not the strategy. It is a way to compress the implementation loop once the target is clear enough to inspect, build, and verify.</p>
+
+      <h2>The loop</h2>
+      <ul>
+        <li><strong>Brief.</strong> Name the user, the workflow, the current asset, the business outcome, and what done looks like.</li>
+        <li><strong>Inspect.</strong> Read the actual code, docs, logs, browser state, database rows, or third-party configuration before deciding what to change.</li>
+        <li><strong>Constrain.</strong> Keep the scope small enough to ship: one page, one API path, one automation, one billing flow, one repo failure.</li>
+        <li><strong>Delegate.</strong> Use agents for bounded implementation, comparison, refactoring, or investigation. Do not ask them to own the product decision.</li>
+        <li><strong>Verify.</strong> Run the build, test the browser route, inspect runtime behavior, and make the result reviewable.</li>
+        <li><strong>Handoff.</strong> Leave the project with working files, exact setup notes, known limits, and the next practical action.</li>
+      </ul>
+
+      <h2>Where this beats a normal ChatGPT session</h2>
+      <p>Most ChatGPT sessions stop at advice. Good agentic coding work touches the live materials: the repository, the deployment target, the form, the database, the logs, the screenshots, the payment flow, or the automation history. That is where the useful truth is.</p>
+
+      <p>For a founder, this means the conversation turns into a working artifact faster. For a small business, it means an automation can be tested against the real workflow instead of described in a slide. For a product team, it means repo rescue can move from "maybe this is the issue" to a narrow patch with evidence.</p>
+
+      <h2>What I still keep human</h2>
+      <p>I keep product judgment, scope control, taste, and acceptance criteria outside the agent. The agent can write code, find mistakes, compare options, and produce drafts. It cannot know which tradeoff matters to the customer unless the operator makes that explicit.</p>
+
+      <div class="callout">
+        <p>If you have a real workflow, prototype, or repo issue, the useful first step is a project brief: what exists, what hurts, who uses it, and what done looks like.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="/#brief">Send a project brief</a>
+          <a class="btn" href="https://cal.com/congcong-fan-pcwpkd/ai-build-sprint-intro">Book an intro call</a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="pagefoot">
+    <div class="wide">Cong Fan · AI product operator · <a href="mailto:work@congfan.dev">work@congfan.dev</a></div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,10 @@
+name = "congfan-brief"
+main = "worker/brief.js"
+compatibility_date = "2026-05-04"
+
+routes = [
+  { pattern = "congfan.dev/api/brief*", zone_name = "congfan.dev" }
+]
+
+[[send_email]]
+name = "BRIEF_EMAIL"

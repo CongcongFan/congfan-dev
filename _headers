@@ -9,3 +9,9 @@
 
 /hero-operator.png
   Cache-Control: public, max-age=31536000, immutable
+
+/cong-fan-headshot.jpg
+  Cache-Control: public, max-age=31536000, immutable
+
+/field-notes/*
+  Cache-Control: public, max-age=3600

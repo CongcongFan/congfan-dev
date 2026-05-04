@@ -1,6 +1,6 @@
 # congfan.dev
 
-Static Cloudflare Pages site for Cong Fan.
+Static Cloudflare Pages site for Cong Fan, plus a small Cloudflare Worker for project brief submissions.
 
 ## Current deployment
 
@@ -31,6 +31,7 @@ npm install
 npm run build
 npm run lint
 npm run test
+npm run deploy:all
 ```
 
 ## Direct Wrangler deploy
@@ -40,6 +41,7 @@ Do not commit Cloudflare tokens. Use one of:
 ```bash
 npx wrangler login
 npm run deploy
+npm run deploy:brief
 ```
 
 or:
@@ -47,6 +49,22 @@ or:
 ```bash
 CLOUDFLARE_API_TOKEN=... npm run deploy
 ```
+
+## GitHub Actions deploy
+
+The existing Cloudflare Pages project was created as a Direct Uploads project, so Cloudflare API does not allow converting it in place to a Git-connected `source` project.
+
+Automatic deploys are prepared with `.github/workflows/deploy.yml`. Before relying on push-to-main deploys, add these GitHub repository secrets:
+
+- `CLOUDFLARE_API_TOKEN` with Cloudflare Pages write access
+- `CLOUDFLARE_ACCOUNT_ID` for the account that owns `congfan-dev`
+
+The workflow deploys both:
+
+- Cloudflare Pages project: `congfan-dev`
+- Brief API Worker route: `congfan.dev/api/brief*`
+
+The brief Worker also needs a `BRIEF_RECIPIENT` Worker secret set to a verified Cloudflare Email Routing destination address. The public site still shows `work@congfan.dev`; the private destination is not committed.
 
 ## Custom domains
 

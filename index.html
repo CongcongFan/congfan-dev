@@ -646,6 +646,20 @@
       gap: var(--gap-sm);
       flex-wrap: wrap;
     }
+    .form-status {
+      min-height: 24px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .form-status.is-success { color: #2F5B4F; }
+    .form-status.is-error { color: var(--accent); }
+    .hp-field {
+      position: absolute;
+      left: -10000px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
     .chinese-note {
       border-top: 1px solid var(--fg);
       padding-top: 20px;
@@ -773,6 +787,7 @@
         <a href="#offers">Offers</a>
         <a href="#capabilities">Capabilities</a>
         <a href="#work">Work</a>
+        <a href="#field-notes">Notes</a>
         <a href="#fit">Fit</a>
         <a href="#brief">Brief</a>
       </nav>
@@ -1148,6 +1163,25 @@
       </div>
     </section>
 
+    <section class="section" id="field-notes" data-od-id="field-notes">
+      <div class="container grid-1-2">
+        <aside class="work-note">
+          <p class="meta">Field notes</p>
+          <p style="margin-top: 16px;">Short notes on how I use AI agents, product constraints, repo truth, and runtime verification in real builds.</p>
+        </aside>
+        <div class="notes-list">
+          <article class="note-item">
+            <h3><a class="inline-link" href="/field-notes/agentic-coding-loop">How I use Codex and Claude Code to ship working prototypes</a></h3>
+            <p>A practical loop for founder builds: brief, inspect, constrain, delegate, verify, and leave behind something usable.</p>
+          </article>
+          <article class="note-item">
+            <h3>More notes soon</h3>
+            <p>Future notes will cover AI workflow audits, repo rescue, and when an automation should become a product surface.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="brief" data-od-id="project-brief">
       <div class="container grid-1-2">
         <aside class="availability-card card">
@@ -1158,29 +1192,43 @@
           <a class="btn btn-ghost" href="mailto:work@congfan.dev?subject=Project%20brief%20for%20Cong%20Fan">Email directly</a>
           <p class="meta" id="calendar-placeholder" style="margin-top: 18px;">30-minute AI Build Sprint intro call via Cal.com.</p>
         </aside>
-        <form class="brief-form" action="mailto:work@congfan.dev" method="post" enctype="text/plain">
+        <form class="brief-form" action="/api/brief" method="post">
+          <div class="grid-2">
+            <div class="field">
+              <label for="name">Your name</label>
+              <input class="input" id="name" name="name" autocomplete="name" />
+            </div>
+            <div class="field">
+              <label for="email">Reply email</label>
+              <input class="input" id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+          </div>
+          <div class="hp-field" aria-hidden="true">
+            <label for="company_url">Company URL</label>
+            <input id="company_url" name="company_url" tabindex="-1" autocomplete="off" />
+          </div>
           <div class="field">
             <label for="build">What are you trying to build or fix?</label>
-            <textarea class="textarea" id="build" name="What are you trying to build or fix?" required></textarea>
+            <textarea class="textarea" id="build" name="build" required></textarea>
           </div>
           <div class="grid-2">
             <div class="field">
               <label for="problem">What problem does it solve?</label>
-              <textarea class="textarea" id="problem" name="What problem does it solve?"></textarea>
+              <textarea class="textarea" id="problem" name="problem"></textarea>
             </div>
             <div class="field">
               <label for="user">Who is the user or customer?</label>
-              <textarea class="textarea" id="user" name="Who is the user/customer?"></textarea>
+              <textarea class="textarea" id="user" name="user"></textarea>
             </div>
           </div>
           <div class="field">
             <label for="existing">Do you already have a codebase, website, workflow, or prototype?</label>
-            <input class="input" id="existing" name="Existing codebase, website, workflow, or prototype" />
+            <input class="input" id="existing" name="existing" />
           </div>
           <div class="grid-2">
             <div class="field">
               <label for="tools">What tools are involved?</label>
-              <input class="input" id="tools" name="Tools involved" placeholder="Supabase, Stripe, n8n, Codex, Claude Code..." />
+              <input class="input" id="tools" name="tools" placeholder="Supabase, Stripe, n8n, Codex, Claude Code..." />
             </div>
             <div class="field">
               <label for="budget">Budget range</label>
@@ -1196,17 +1244,18 @@
           <div class="grid-2">
             <div class="field">
               <label for="timeline">Timeline</label>
-              <input class="input" id="timeline" name="Timeline" placeholder="This week, this month, before launch..." />
+              <input class="input" id="timeline" name="timeline" placeholder="This week, this month, before launch..." />
             </div>
             <div class="field">
               <label for="done">What does done look like?</label>
-              <input class="input" id="done" name="Definition of done" />
+              <input class="input" id="done" name="done" />
             </div>
           </div>
           <div class="form-actions">
             <button class="btn btn-primary" type="submit">Send project brief</button>
             <a class="btn btn-ghost btn-arrow" href="mailto:work@congfan.dev">work@congfan.dev</a>
           </div>
+          <p class="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>
@@ -1222,5 +1271,43 @@
       </nav>
     </div>
   </footer>
+  <script>
+    const briefForm = document.querySelector(".brief-form");
+    const briefStatus = document.querySelector(".form-status");
+
+    if (briefForm && briefStatus) {
+      briefForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const submitButton = briefForm.querySelector('button[type="submit"]');
+        const formData = new FormData(briefForm);
+        briefStatus.className = "form-status";
+        briefStatus.textContent = "Sending brief...";
+        submitButton.disabled = true;
+
+        try {
+          const response = await fetch(briefForm.action, {
+            method: "POST",
+            headers: { "Accept": "application/json" },
+            body: formData,
+          });
+          const result = await response.json().catch(() => ({}));
+          if (!response.ok) throw new Error(result.error || "Brief submission failed.");
+          briefStatus.className = "form-status is-success";
+          briefStatus.textContent = "Brief sent. I will reply from work@congfan.dev.";
+          briefForm.reset();
+        } catch (error) {
+          const subject = encodeURIComponent("Project brief for Cong Fan");
+          const body = encodeURIComponent(Array.from(formData.entries())
+            .filter(([key, value]) => key !== "company_url" && String(value).trim())
+            .map(([key, value]) => `${key}: ${value}`)
+            .join("\n\n"));
+          briefStatus.className = "form-status is-error";
+          briefStatus.innerHTML = `The form could not send right now. <a class="inline-link" href="mailto:work@congfan.dev?subject=${subject}&body=${body}">Email the brief instead</a>.`;
+        } finally {
+          submitButton.disabled = false;
+        }
+      });
+    }
+  </script>
 </body>
 </html>

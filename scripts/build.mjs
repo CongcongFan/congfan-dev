@@ -1,4 +1,4 @@
-import { cp, mkdir, rm } from "node:fs/promises";
+import { access, cp, mkdir, rm } from "node:fs/promises";
 
 await rm("dist", { recursive: true, force: true });
 await mkdir("dist", { recursive: true });
@@ -13,4 +13,11 @@ for (const file of [
   "_headers",
 ]) {
   await cp(file, `dist/${file}`);
+}
+
+try {
+  await access("field-notes");
+  await cp("field-notes", "dist/field-notes", { recursive: true });
+} catch (error) {
+  if (error.code !== "ENOENT") throw error;
 }
