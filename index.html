@@ -433,6 +433,26 @@
       margin: 0;
       color: var(--muted);
     }
+    .operator-profile {
+      margin-top: 26px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+    }
+    .operator-profile img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      object-position: center;
+      filter: saturate(0.96) contrast(1.02);
+    }
+    .operator-profile figcaption {
+      padding: 14px 16px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+    }
     .service-list {
       display: grid;
       gap: 0;
@@ -1094,6 +1114,10 @@
         <aside class="work-note">
           <p class="meta">Operator notes</p>
           <p style="margin-top: 16px;">I bias toward proof over performance. The useful output is something you can inspect, run, test, hand off, or deploy.</p>
+          <figure class="operator-profile">
+            <img src="cong-fan-headshot.jpg" alt="Cong Fan" loading="lazy" />
+            <figcaption class="meta">Brisbane-based. Product thinking, technical implementation, and shipping.</figcaption>
+          </figure>
         </aside>
         <div class="notes-list">
           <article class="note-item">
